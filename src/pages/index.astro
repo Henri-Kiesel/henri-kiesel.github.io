@@ -1,0 +1,13 @@
+---
+import HomePage from '../components/HomePage.astro';
+import site from '../data/site.json';
+import cv from '../data/cv.de.json';
+import ui from '../data/ui.de.json';
+import type { SiteConfig } from '../types/site';
+import type { CvDocument } from '../types/cv';
+
+const typedSite = site as SiteConfig;
+const typedCv = cv as CvDocument;
+---
+
+<HomePage lang="de" site={typedSite} cv={typedCv} ui={ui} alternatePath="/en/" nextLocale="en" />

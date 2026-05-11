@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SocialLinks from './SocialLinks.astro';
+import CvTimeline from './CvTimeline.astro';
+import CvSectionNav from './CvSectionNav.astro';
+import type { SiteConfig } from '../types/site';
+import type { CvDocument } from '../types/cv';
+
+interface Ui {
+  metaTitle: string;
+  metaDescription: string;
+  navCv: string;
+  langSwitch: string;
+  langSwitchAria: string;
+  skipToContent: string;
+  footerBuilt: string;
+  cvNavAria: string;
+  cvNavHeading: string;
+}
+
+interface Props {
+  lang: 'de' | 'en';
+  site: SiteConfig;
+  cv: CvDocument;
+  ui: Ui;
+  alternatePath: string;
+  nextLocale: 'de' | 'en';
+}
+
+const { lang, site, cv, ui, alternatePath, nextLocale } = Astro.props;
+const homeHref = lang === 'de' ? '/' : '/en/';
+const tagline = lang === 'de' ? site.tagline_de : site.tagline_en;
+const location = lang === 'de' ? site.location_de : site.location_en;
+---
+
+<BaseLayout lang={lang} title={ui.metaTitle} description={ui.metaDescription} skipToContent={ui.skipToContent}>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href={homeHref}>{site.name}</a>
+      <div class="header-actions">
+        <a class="nav-anchor" href="#cv">{ui.navCv}</a>
+        <a class="lang-btn" href={alternatePath} data-set-locale={nextLocale} aria-label={ui.langSwitchAria}>
+          {ui.langSwitch}
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <section class="hero" aria-labelledby="hero-title">
+        <img class="hero-photo" src={site.profileImage} width="160" height="160" alt={site.name} loading="eager" />
+        <div>
+          <h1 id="hero-title">{site.name}</h1>
+          <p class="tagline">
+            <span class="tagline-text">{tagline}</span>
+            {
+              location ? (
+                <span class="tagline-location">
+                  <svg class="pin-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path
+                      fill="currentColor"
+                      d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 10c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"
+                    />
+                  </svg>
+                  <span>{location}</span>
+                </span>
+              ) : null
+            }
+          </p>
+          <SocialLinks site={site} />
+        </div>
+      </section>
+
+      <div class="cv-layout" id="cv">
+        <aside class="cv-sidebar">
+          <p class="cv-section-heading">{ui.cvNavHeading}</p>
+          <CvSectionNav sections={cv.sections.map((s) => ({ id: s.id, title: s.title }))} ariaLabel={ui.cvNavAria} />
+        </aside>
+        <div class="cv-main">
+          <CvTimeline cv={cv} />
+        </div>
+      </div>
+
+      <footer class="site-footer">
+        <p>
+          {ui.footerBuilt}:
+          <a href={site.repoUrl} target="_blank" rel="noopener noreferrer">GitHub</a>
+        </p>
+      </footer>
+    </div>
+  </main>
+</BaseLayout>

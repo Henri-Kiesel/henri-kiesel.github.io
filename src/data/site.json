@@ -1,0 +1,13 @@
+{
+  "name": "Henri Kiesel",
+  "tagline_de": "M.Sc. Student in Robotics, Cognition, Intelligence at TUM",
+  "tagline_en": "M.Sc. Student in Robotics, Cognition, Intelligence at TUM",
+  "location_de": "München",
+  "location_en": "Munich",
+  "profileImage": "/assets/img/henri_kiesel_profile_pic_circle.png",
+  "repoUrl": "https://github.com/henri-kiesel/henri-kiesel.github.io",
+  "social": {
+    "github": "https://github.com/henri-kiesel",
+    "linkedin": "https://www.linkedin.com/in/henri-kiesel/"
+  }
+}

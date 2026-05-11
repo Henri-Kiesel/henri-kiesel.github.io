@@ -1,0 +1,89 @@
+{
+  "sections": [
+    {
+      "id": "education",
+      "title": "Education",
+      "entries": [
+        {
+          "id": "tum-msc-robotics-cognition-intelligence",
+          "title": "M.Sc. Robotics, Cognition, Intelligence",
+          "programUrl": "https://www.tum.de/en/studies/degree-programs/detail/robotics-cognition-intelligence-master-of-science-msc",
+          "org": "Technical University of Munich",
+          "location": "Munich",
+          "period": "since Oct 2025",
+          "summary": "Interdisciplinary master’s program at TUM, focusing on intelligent systems, autonomous robotics and cognitive technologies.",
+          "details": "Relevant Coursework:",
+          "highlights": [
+            "Machine Learning, Introduction to Deep Learning",
+            "3D Computer Vision, Advanced Deep Learning for Computer Vision",
+            "Roboterdynamik, Regelung moderner Leichtbauroboter, Automone Systeme"
+          ]
+        },
+        {
+          "id": "uni-stuttgart-bsc-technische-kybernetik",
+          "title": "B.Sc. Engineering Cybernetics",
+          "programUrl": "https://www.uni-stuttgart.de/en/study/bachelor-programs/engineering-cybernetics-b.sc./",
+          "org": "University of Stuttgart",
+          "location": "Stuttgart Vaihingen",
+          "period": "Oct 2020 – Apr 2025",
+          "summary": "Advanced focus on system dynamics, control theory, and mathematical modeling to architect and optimize intelligent systems in robotics, autonomous tech, and AI.",
+          "details": "Thesis: ”Advancement of a Reinforcement‑Learning based operational strategy for a façade‑integrated adsorption system”. \n \n Relevant Coursework:",
+          "highlights": [
+            "Programming and Software Development, Numerical Methods, Machine Learning, Reinforcement Learning",
+            "System Dynamics, Multivariable Control, Simulation Engineering",
+            "Signal Processing, Engineering Mechanics, Thermodynamics"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "experience",
+      "title": "Experience",
+      "entries": [
+        {
+          "id": "portfolio-under-construction",
+          "title": "Site is currently under construction",
+          "org": "[Company]",
+          "orgUrl": "https://example.com",
+          "location": "Remote / City",
+          "period": "20XX–20XX",
+          "summary": "One line on the role and impact.",
+          "details": "Stack, team size, responsibilities, outcomes — anything you want behind the fold.",
+          "highlights": ["Kubernetes", "Python"]
+        }
+      ]
+    },
+    {
+      "id": "projects",
+      "title": "Projects",
+      "entries": [
+        {
+          "id": "project-placeholder",
+          "title": "[Project title]",
+          "org": "Personal / team / course project",
+          "location": "",
+          "period": "20XX",
+          "summary": "One line: problem, role, outcome.",
+          "details": "Stack, repo or demo link, challenges.",
+          "highlights": ["Tech A", "Tech B"]
+        }
+      ]
+    },
+    {
+      "id": "extracurricular",
+      "title": "Extracurricular",
+      "entries": [
+        {
+          "id": "extracurricular-placeholder",
+          "title": "[Club / initiative / team]",
+          "org": "[Organization]",
+          "location": "",
+          "period": "20XX–present",
+          "summary": "Short description of involvement (e.g. board, mentoring, hackathons).",
+          "details": "More detail: role, scope, outcomes — expandable here.",
+          "highlights": ["Bullet 1", "Bullet 2"]
+        }
+      ]
+    }
+  ]
+}

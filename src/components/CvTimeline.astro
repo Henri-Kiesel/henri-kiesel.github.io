@@ -1,0 +1,71 @@
+---
+import type { CvDocument } from '../types/cv';
+
+interface Props {
+  cv: CvDocument;
+}
+
+const { cv } = Astro.props;
+---
+
+{
+  cv.sections.map((section) => (
+    <section class="cv-section" id={section.id} aria-labelledby={`heading-${section.id}`}>
+      <h2 class="cv-section-heading" id={`heading-${section.id}`}>{section.title}</h2>
+      <div class="cv-list">
+        {section.entries.map((entry) => (
+          <details class="cv-entry" id={entry.id} name={`group-${section.id}`}>
+            <summary>
+              <div class="summary-top">
+                <span class="summary-title">
+                  {entry.programUrl ? (
+                    <a class="cv-in-summary" href={entry.programUrl} target="_blank" rel="noopener noreferrer">
+                      {entry.title}
+                    </a>
+                  ) : (
+                    entry.title
+                  )}
+                </span>
+                <span class="summary-end">
+                  <span class="period">{entry.period}</span>
+                  <span class="disclosure-chevron" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M9 6l6 6-6 6" />
+                    </svg>
+                  </span>
+                </span>
+              </div>
+              <span class="summary-org">
+                {entry.orgUrl ? (
+                  <a class="cv-in-summary" href={entry.orgUrl} target="_blank" rel="noopener noreferrer">
+                    {entry.org}
+                  </a>
+                ) : (
+                  entry.org
+                )}
+                {entry.location ? <span class="org-location"> · {entry.location}</span> : null}
+              </span>
+              <p class="entry-summary-line">{entry.summary}</p>
+            </summary>
+            <div class="body">
+              {entry.details && <p>{entry.details}</p>}
+              {entry.highlights && entry.highlights.length > 0 && (
+                <ul class="highlights">
+                  {entry.highlights.map((h) => (
+                    <li>{h}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </details>
+        ))}
+      </div>
+    </section>
+  ))
+}
+
+<script>
+  document.querySelectorAll('a.cv-in-summary').forEach((anchor) => {
+    anchor.addEventListener('click', (e) => e.stopPropagation());
+  });
+</script>

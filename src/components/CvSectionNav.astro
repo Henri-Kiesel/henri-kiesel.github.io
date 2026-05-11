@@ -1,0 +1,27 @@
+---
+interface CvNavSection {
+  id: string;
+  title: string;
+}
+
+interface Props {
+  sections: CvNavSection[];
+  ariaLabel: string;
+}
+
+const { sections, ariaLabel } = Astro.props;
+---
+
+<nav class="cv-toc" aria-label={ariaLabel}>
+  <ul class="cv-toc-list">
+    {
+      sections.map((s) => (
+        <li>
+          <a class="cv-toc-link" href={`#${s.id}`}>
+            {s.title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

@@ -1,0 +1,89 @@
+{
+  "sections": [
+    {
+      "id": "education",
+      "title": "Ausbildung",
+      "entries": [
+        {
+          "id": "tum-msc-robotics-cognition-intelligence",
+          "title": "M.Sc. Robotics, Cognition, Intelligence",
+          "programUrl": "https://www.tum.de/studium/studienangebot/detail/robotics-cognition-intelligence-master-of-science-msc",
+          "org": "Technische Universität München",
+          "location": "München",
+          "period": "seit Okt 2025",
+          "summary": "Interdisziplinäres Masterprogramm an der TU München mit Fokus auf intelligente Systeme, autonome Robotik und kognitive Technologien.",
+          "details": "Relevante Kurse:",
+          "highlights": [
+            "Machine Learning, Introduction to Deep Learning",
+            "3D Computer Vision, Advanced Deep Learning for Computer Vision",
+            "Roboterdynamik, Regelung moderner Leichtbauroboter, Automone Systeme"
+          ]
+        },
+        {
+          "id": "uni-stuttgart-bsc-technische-kybernetik",
+          "title": "B.Sc. Technische Kybernetik",
+          "programUrl": "https://www.uni-stuttgart.de/studium/bachelor/technische-kybernetik-b.sc./",
+          "org": "Universität Stuttgart",
+          "location": "Stuttgart Vaihingen",
+          "period": "Okt 2020 - Apr 2025",
+          "summary": "Methodenorientiertes Studium der Systemdynamik und Regelungstechnik zur Modellierung und Optimierung komplexer Systeme in den Bereichen Robotik, KI und autonomer Mobilität.",
+          "details": "Bachelorthema: „Weiterentwicklung der Reinforcement‑Learning basierten Betriebsstrategie einer Adsorptionsfassade”. \n \n Relevante Kurse:",
+          "highlights": [
+            "Programmierung und Softwareentwicklung, Numerische Methoden, Maschinelles Lernen, Reinforcement Learning",
+            "Systemdynamik, Mehrgrößenregelung, Simulationstechnik",
+            "Elektrische Signalverarbeitung, Technische Mechanik, Thermodynamik"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "experience",
+      "title": "Berufserfahrung",
+      "entries": [
+        {
+          "id": "portfolio-under-construction",
+          "title": "Seite ist aktuell im Aufbau",
+          "org": "[Unternehmen]",
+          "orgUrl": "https://example.com",
+          "location": "Remote / Stadt",
+          "period": "20XX–20XX",
+          "summary": "Ein Satz zur Rolle und dem Impact.",
+          "details": "Technologien, Teamgröße, Verantwortung, Ergebnisse.",
+          "highlights": ["Kubernetes", "Python"]
+        }
+      ]
+    },
+    {
+      "id": "projects",
+      "title": "Projekte",
+      "entries": [
+        {
+          "id": "project-placeholder",
+          "title": "[Projekttitel]",
+          "org": "Eigenes Projekt / Team / Kurs",
+          "location": "",
+          "period": "20XX",
+          "summary": "Ein Satz: Problem, Rolle, Ergebnis.",
+          "details": "Tech-Stack, Link zum Repo oder Demo, Herausforderungen.",
+          "highlights": ["Technologie A", "Technologie B"]
+        }
+      ]
+    },
+    {
+      "id": "extracurricular",
+      "title": "Engagement",
+      "entries": [
+        {
+          "id": "extracurricular-placeholder",
+          "title": "[Verein / Initiative / Team]",
+          "org": "[Organisation]",
+          "location": "",
+          "period": "20XX–heute",
+          "summary": "Kurzbeschreibung Engagements (z. B. Vorstand, Mentoring, Hackathons).",
+          "details": "Mehr Details: Rolle, Umfang, Ergebnisse — hier ausklappbar.",
+          "highlights": ["Stichpunkt 1", "Stichpunkt 2"]
+        }
+      ]
+    }
+  ]
+}
