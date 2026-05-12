@@ -5,6 +5,8 @@
   "location_de": "München",
   "location_en": "Munich",
   "profileImage": "/assets/img/henri_kiesel_profile_pic_circle.png",
+  "profileImageLarge": "/assets/img/henri_kiesel_profile_pic.jpg",
+  "email": "contact@henri-kiesel.de",
   "repoUrl": "https://github.com/henri-kiesel/henri-kiesel.github.io",
   "social": {
     "github": "https://github.com/henri-kiesel",

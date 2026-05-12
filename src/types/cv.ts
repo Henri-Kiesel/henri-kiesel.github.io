@@ -13,6 +13,10 @@ export interface CvEntry {
   /** Ausführlicher Text im ausgeklappten Bereich (Zeilenumbrüche mit \\n) */
   details?: string;
   highlights?: string[];
+  /** Kurze Skill-Tags (Pills) im ausgeklappten Bereich unter den Highlights */
+  keySkills?: string[];
+  /** Bannerbild oben in der Karte (Pfad unter /public, z. B. /assets/img/…) */
+  bannerImage?: string;
 }
 
 export interface CvSection {

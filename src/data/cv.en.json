@@ -17,7 +17,9 @@
             "Machine Learning, Introduction to Deep Learning",
             "3D Computer Vision, Advanced Deep Learning for Computer Vision",
             "Roboterdynamik, Regelung moderner Leichtbauroboter, Automone Systeme"
-          ]
+          ],
+          "keySkills": ["Python", "Pandas", "PyTorch", "NumPy", "TensorFlow", "C/C++", "ROS", "Linux", "Docker"],
+          "bannerImage": "/assets/img/tum_1.jpg"
         },
         {
           "id": "uni-stuttgart-bsc-technische-kybernetik",
@@ -27,12 +29,14 @@
           "location": "Stuttgart Vaihingen",
           "period": "Oct 2020 – Apr 2025",
           "summary": "Advanced focus on system dynamics, control theory, and mathematical modeling to architect and optimize intelligent systems in robotics, autonomous tech, and AI.",
-          "details": "Thesis: ”Advancement of a Reinforcement‑Learning based operational strategy for a façade‑integrated adsorption system”. \n \n Relevant Coursework:",
+          "details": "Thesis: ”Advancement of a Reinforcement‑Learning based operational strategy for a façade‑integrated adsorption system” \n \n Relevant Coursework:",
           "highlights": [
             "Programming and Software Development, Numerical Methods, Machine Learning, Reinforcement Learning",
             "System Dynamics, Multivariable Control, Simulation Engineering",
             "Signal Processing, Engineering Mechanics, Thermodynamics"
-          ]
+          ],
+          "keySkills": ["Java", "Python", "NumPy", "Scikit-learn", "MATLAB", "Simulink"],
+          "bannerImage": "/assets/img/uni_stuttgart_1.jpg"
         }
       ]
     },
@@ -41,31 +45,51 @@
       "title": "Experience",
       "entries": [
         {
-          "id": "portfolio-under-construction",
-          "title": "Site is currently under construction",
-          "org": "[Company]",
-          "orgUrl": "https://example.com",
-          "location": "Remote / City",
-          "period": "20XX–20XX",
-          "summary": "One line on the role and impact.",
-          "details": "Stack, team size, responsibilities, outcomes — anything you want behind the fold.",
-          "highlights": ["Kubernetes", "Python"]
-        }
-      ]
-    },
-    {
-      "id": "projects",
-      "title": "Projects",
-      "entries": [
+          "id": "tum-social-ai-club-engineer-2026",
+          "title": "AI Engineer",
+          "org": "TUM Social AI Club",
+          "orgUrl": "https://www.tum-socialaiclub.de/",
+          "location": "Munich",
+          "period": "since May 2026",
+          "summary": "Engineer in TUM’s student initiative for socially impactful AI.",
+          "details": "The TUM Social AI Club connects students with nonprofit and mission-driven organizations for semester-long AI projects. Partners and supporters—including companies such as OpenAI and AWS—help enable the club’s work.\n \n Responsibilities:",
+          "highlights": [
+            "Technical contributions to club projects (analysis, development, testing, delivery)",
+            "Interdisciplinary collaboration within the engineering team"
+          ],
+          "keySkills": ["Python", "Machine Learning"],
+          "bannerImage": "/assets/img/tum_social_ai_club.svg"
+        },
         {
-          "id": "project-placeholder",
-          "title": "[Project title]",
-          "org": "Personal / team / course project",
-          "location": "",
-          "period": "20XX",
-          "summary": "One line: problem, role, outcome.",
-          "details": "Stack, repo or demo link, challenges.",
-          "highlights": ["Tech A", "Tech B"]
+          "id": "isys-stuttgart-hilfskraft-2025",
+          "title": "Student Research Assistant",
+          "org": "Institute for System Dynamics, University of Stuttgart",
+          "orgUrl": "https://www.isys.uni-stuttgart.de/en/",
+          "location": "Stuttgart Vaihingen",
+          "period": "Jun. 2025 – Sep. 2025",
+          "summary": "Continuation of bachelor’s thesis research: optimizing the operational strategy of an adsorption façade using deep reinforcement learning.",
+          "details": "Key achievements:",
+          "highlights": ["Implemented new evaluation metrics", "Optimized the training pipeline", "Refined the Deep RL model architecture", "Performed parameter optimization"],
+          "keySkills": ["MATLAB"],
+          "bannerImage": "/assets/img/isys_1.png"
+        },
+        {
+          "id": "faro-europe-intern-2019",
+          "title": "Intern at FARO Labs",
+          "org": "FARO Europe GmbH & Co. KG",
+          "orgUrl": "https://www.faro.com/en",
+          "location": "Korntal-Münchingen",
+          "period": "Nov 2019 – Sep 2020",
+          "summary": "Eleven-month full-time internship in the Faro-Labs development department.",
+          "details": "FARO Europe GmbH & Co. KG develops and markets portable 3D measurement and imaging systems worldwide.\n \n Responsibilities:",
+          "highlights": [
+            "Automation of UI, unit, and API tests",
+            "Design and implementation of a noise filter for a prototype",
+            "Implementation of a system diagnostics module",
+            "SLAM evaluation"
+          ],
+          "keySkills": ["ROS", "C/C++", "Python", "JavaScript", "TestComplete", "Jira", "Confluence"],
+          "bannerImage": "/assets/img/faro_1.jpg"
         }
       ]
     },
@@ -74,14 +98,20 @@
       "title": "Extracurricular",
       "entries": [
         {
-          "id": "extracurricular-placeholder",
-          "title": "[Club / initiative / team]",
-          "org": "[Organization]",
-          "location": "",
-          "period": "20XX–present",
-          "summary": "Short description of involvement (e.g. board, mentoring, hackathons).",
-          "details": "More detail: role, scope, outcomes — expandable here.",
-          "highlights": ["Bullet 1", "Bullet 2"]
+          "id": "tsv-korntal-youth-coach",
+          "title": "Youth Soccer Coach",
+          "org": "TSV Korntal – Soccer Department",
+          "location": "Korntal-Münchingen",
+          "period": "Jan. 2020 – Apr. 2022",
+          "summary": "Head coach of the U11 team",
+          "details": "Responsibilities:",
+          "highlights": [
+            "Organization and supervision of training sessions, matches and tournaments",
+            "Team management, including equipment",
+            "Communication with club management and parents"
+          ],
+          "keySkills": [],
+          "bannerImage": "/assets/img/tsv_korntal_1.jpg"
         }
       ]
     }

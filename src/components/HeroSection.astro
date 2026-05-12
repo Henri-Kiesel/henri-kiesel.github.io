@@ -1,0 +1,97 @@
+---
+import SocialLinks from './SocialLinks.astro';
+import type { SiteConfig } from '../types/site';
+
+interface HeroUi {
+  profileExpand: string;
+  lightboxClose: string;
+  emailLabel: string;
+  emailCopied: string;
+}
+
+interface Props {
+  lang: 'de' | 'en';
+  site: SiteConfig;
+  ui: HeroUi;
+  /** Nur auf der Startseite true: ein einziges h1 (Seitentitel), sonst Name als Absatz */
+  isPrimaryHeading?: boolean;
+  /** Optionaler Seitenzusatz wie "CV", "Projects" usw. */
+  pageLabel?: string;
+}
+
+const { lang, site, ui, isPrimaryHeading = true, pageLabel } = Astro.props;
+const tagline = lang === 'de' ? site.tagline_de : site.tagline_en;
+const location = lang === 'de' ? site.location_de : site.location_en;
+const largeSrc = site.profileImageLarge ?? site.profileImage;
+---
+
+<section class="hero" aria-labelledby="hero-title">
+  <button type="button" class="hero-photo-trigger" aria-haspopup="dialog" aria-label={ui.profileExpand} data-open-photo-dialog>
+    <img class="hero-photo" src={site.profileImage} width="160" height="160" alt="" loading="eager" />
+  </button>
+  <dialog class="photo-lightbox" aria-label={ui.profileExpand} data-photo-dialog>
+    <div class="photo-lightbox-inner">
+      <button type="button" class="lightbox-close" aria-label={ui.lightboxClose} data-close-photo-dialog>
+        <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round">
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+      <img src={largeSrc} width="720" height="720" alt="" class="photo-lightbox-img" loading="lazy" />
+    </div>
+  </dialog>
+  <div>
+    {
+      isPrimaryHeading ? (
+        <h1 id="hero-title">
+          {site.name}
+          {pageLabel ? <span> - {pageLabel}</span> : null}
+        </h1>
+      ) : (
+        <p id="hero-title" class="hero-identity-name">
+          {site.name}
+          {pageLabel ? <span> - {pageLabel}</span> : null}
+        </p>
+      )
+    }
+    <p class="tagline">
+      <span class="tagline-text">{tagline}</span>
+      {
+        location ? (
+          <span class="tagline-location">
+            <svg class="pin-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path
+                fill="currentColor"
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 10c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"
+              />
+            </svg>
+            <span>{location}</span>
+          </span>
+        ) : null
+      }
+    </p>
+    <SocialLinks site={site} emailLabel={ui.emailLabel} emailCopied={ui.emailCopied} />
+  </div>
+</section>
+
+<script>
+  function initPhotoDialog() {
+    var openBtn = document.querySelector('[data-open-photo-dialog]');
+    var dlg = document.querySelector('[data-photo-dialog]');
+    var closeBtn = document.querySelector('[data-close-photo-dialog]');
+    if (!openBtn || !dlg || !closeBtn || !(dlg instanceof HTMLDialogElement)) return;
+
+    openBtn.addEventListener('click', function () {
+      if (!dlg.open) dlg.showModal();
+    });
+    closeBtn.addEventListener('click', function () {
+      dlg.close();
+    });
+    dlg.addEventListener('click', function (e) {
+      if (e.target === dlg) dlg.close();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && dlg.open) dlg.close();
+    });
+  }
+  initPhotoDialog();
+</script>

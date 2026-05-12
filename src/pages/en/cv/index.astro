@@ -1,0 +1,36 @@
+---
+import SiteChrome from '../../../components/SiteChrome.astro';
+import CvSectionNav from '../../../components/CvSectionNav.astro';
+import CvTimeline from '../../../components/CvTimeline.astro';
+import site from '../../../data/site.json';
+import cv from '../../../data/cv.en.json';
+import ui from '../../../data/ui.en.json';
+import type { SiteConfig } from '../../../types/site';
+import type { CvDocument } from '../../../types/cv';
+
+const typedSite = site as SiteConfig;
+const typedCv = cv as CvDocument;
+const canonicalHref = new URL(Astro.url.pathname, Astro.site ?? new URL('https://henri-kiesel.github.io/')).href;
+---
+
+<SiteChrome
+  lang="en"
+  site={typedSite}
+  ui={ui}
+  activeNav="cv"
+  title={ui.metaTitleCv}
+  description={ui.metaDescriptionCv}
+  canonicalHref={canonicalHref}
+  alternatePath="/lebenslauf/"
+  nextLocale="de"
+>
+  <div class="cv-layout" id="cv">
+    <aside class="cv-sidebar">
+      <p class="cv-section-heading">{ui.cvNavHeading}</p>
+      <CvSectionNav sections={typedCv.sections.map((s) => ({ id: s.id, title: s.title }))} ariaLabel={ui.cvNavAria} />
+    </aside>
+    <div class="cv-main">
+      <CvTimeline cv={typedCv} lang="en" />
+    </div>
+  </div>
+</SiteChrome>

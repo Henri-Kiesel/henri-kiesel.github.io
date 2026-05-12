@@ -1,0 +1,238 @@
+---
+import type { SearchItem } from '../lib/searchIndex';
+
+interface Ui {
+  navHome: string;
+  navCv: string;
+  navProjects: string;
+  navSkills: string;
+  navAria: string;
+  langSwitch: string;
+  langSwitchAria: string;
+  themeSwitchToLight: string;
+  themeSwitchToDark: string;
+  searchPlaceholder: string;
+  searchToggleExpand: string;
+  searchToggleCollapse: string;
+  searchAriaLabel: string;
+}
+
+interface Props {
+  lang: 'de' | 'en';
+  ui: Ui;
+  cvHref: string;
+  projectsHref: string;
+  skillsHref: string;
+  alternatePath: string;
+  nextLocale: 'de' | 'en';
+  activeNav: 'home' | 'cv' | 'projects' | 'skills';
+  searchItems: SearchItem[];
+}
+
+const {
+  lang,
+  ui,
+  cvHref,
+  projectsHref,
+  skillsHref,
+  alternatePath,
+  nextLocale,
+  activeNav,
+  searchItems,
+} = Astro.props;
+
+const navLinkClass = 'nav-anchor';
+---
+
+<div class="header-toolbar">
+  <nav class="header-nav" aria-label={ui.navAria}>
+    <a class:list={[navLinkClass, { 'is-active': activeNav === 'cv' }]} href={cvHref} aria-current={activeNav === 'cv' ? 'page' : undefined}>
+      {ui.navCv}
+    </a>
+    <a
+      class:list={[navLinkClass, { 'is-active': activeNav === 'projects' }]}
+      href={projectsHref}
+      aria-current={activeNav === 'projects' ? 'page' : undefined}
+    >
+      {ui.navProjects}
+    </a>
+    <a
+      class:list={[navLinkClass, { 'is-active': activeNav === 'skills' }]}
+      href={skillsHref}
+      aria-current={activeNav === 'skills' ? 'page' : undefined}
+    >
+      {ui.navSkills}
+    </a>
+  </nav>
+
+  <div class="header-search" data-site-search>
+    <div class="search-expand" id={`search-expand-${lang}`} data-search-expand aria-hidden="true">
+      <label class="visually-hidden" for={`search-input-${lang}`}>{ui.searchAriaLabel}</label>
+      <input
+        id={`search-input-${lang}`}
+        class="search-input"
+        type="search"
+        placeholder={ui.searchPlaceholder}
+        autocomplete="off"
+        aria-autocomplete="list"
+        aria-controls={`search-results-${lang}`}
+        tabindex="-1"
+        data-search-input
+      />
+      <ul class="search-results" id={`search-results-${lang}`} role="listbox" hidden data-search-results></ul>
+    </div>
+    <button
+      type="button"
+      class="search-toggle"
+      aria-expanded="false"
+      aria-controls={`search-expand-${lang}`}
+      title={ui.searchToggleExpand}
+      data-search-toggle
+      data-title-open={ui.searchToggleExpand}
+      data-title-close={ui.searchToggleCollapse}
+    >
+      <span class="visually-hidden">{ui.searchToggleExpand}</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round">
+        <circle cx="11" cy="11" r="7" />
+        <path d="M20 20l-4.35-4.35" />
+      </svg>
+    </button>
+  </div>
+
+  <div class="header-end">
+    <a class="lang-btn" href={alternatePath} data-set-locale={nextLocale} aria-label={ui.langSwitchAria}>
+      {ui.langSwitch}
+    </a>
+    <button
+      type="button"
+      class="theme-toggle"
+      data-theme-toggle
+      data-label-light={ui.themeSwitchToLight}
+      data-label-dark={ui.themeSwitchToDark}
+      aria-label={ui.themeSwitchToLight}
+    >
+      <span class="visually-hidden" data-theme-toggle-text>{ui.themeSwitchToLight}</span>
+      <svg class="theme-toggle-icon theme-toggle-sun" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+      </svg>
+      <svg class="theme-toggle-icon theme-toggle-moon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+      </svg>
+    </button>
+  </div>
+</div>
+
+<script define:vars={{ searchItems }}>
+  function syncThemeToggle() {
+    var theme = document.documentElement.getAttribute('data-theme') || 'dark';
+    document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
+      var lLight = btn.getAttribute('data-label-light') || '';
+      var lDark = btn.getAttribute('data-label-dark') || '';
+      var next = theme === 'light' ? lDark : lLight;
+      btn.setAttribute('aria-label', next);
+      var txt = btn.querySelector('[data-theme-toggle-text]');
+      if (txt) txt.textContent = next;
+    });
+  }
+
+  document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var cur = document.documentElement.getAttribute('data-theme') || 'dark';
+      var next = cur === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      try {
+        localStorage.setItem('site-theme', next);
+      } catch (e) {}
+      syncThemeToggle();
+    });
+  });
+  syncThemeToggle();
+
+  function norm(s) {
+    return String(s).trim().toLowerCase();
+  }
+
+  function init() {
+    var data = Array.isArray(searchItems) ? searchItems : [];
+    var root = document.querySelector('[data-site-search]');
+    if (!root) return;
+    var toggle = root.querySelector('[data-search-toggle]');
+    var expand = root.querySelector('[data-search-expand]');
+    var input = root.querySelector('[data-search-input]');
+    var resultsEl = root.querySelector('[data-search-results]');
+    var header = root.closest('.site-header');
+    if (!toggle || !expand || !input || !resultsEl || !header) return;
+
+    var open = false;
+
+    function setOpen(next) {
+      open = next;
+      header.classList.toggle('search-open', next);
+      toggle.setAttribute('aria-expanded', next ? 'true' : 'false');
+      var tClose = toggle.getAttribute('data-title-close') || '';
+      var tOpen = toggle.getAttribute('data-title-open') || '';
+      toggle.setAttribute('title', next ? tClose : tOpen);
+      expand.setAttribute('aria-hidden', next ? 'false' : 'true');
+      input.tabIndex = next ? 0 : -1;
+      if (next) {
+        input.focus();
+        filter();
+      } else {
+        input.value = '';
+        input.blur();
+        resultsEl.hidden = true;
+        resultsEl.innerHTML = '';
+      }
+    }
+
+    function filter() {
+      var q = norm(input.value);
+      if (!q) {
+        resultsEl.hidden = true;
+        resultsEl.innerHTML = '';
+        return;
+      }
+      var hits = data
+        .filter(function (it) {
+          return norm(it.label).indexOf(q) !== -1 || norm(it.href).indexOf(q) !== -1;
+        })
+        .slice(0, 12);
+      resultsEl.innerHTML = '';
+      if (hits.length === 0) {
+        resultsEl.hidden = true;
+        return;
+      }
+      for (var i = 0; i < hits.length; i++) {
+        var h = hits[i];
+        var li = document.createElement('li');
+        li.setAttribute('role', 'option');
+        var a = document.createElement('a');
+        a.href = h.href;
+        a.textContent = h.label;
+        li.appendChild(a);
+        resultsEl.appendChild(li);
+      }
+      resultsEl.hidden = false;
+    }
+
+    toggle.addEventListener('click', function () {
+      setOpen(!open);
+    });
+    input.addEventListener('input', filter);
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && open) {
+        e.preventDefault();
+        setOpen(false);
+      }
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!open) return;
+      if (!root.contains(e.target)) setOpen(false);
+    });
+  }
+
+  init();
+</script>

@@ -11,13 +11,15 @@
           "org": "Technische Universität München",
           "location": "München",
           "period": "seit Okt 2025",
-          "summary": "Interdisziplinäres Masterprogramm an der TU München mit Fokus auf intelligente Systeme, autonome Robotik und kognitive Technologien.",
+          "summary": "Interdisziplinäres Masterprogramm an der TU München mit Fokus auf intelligente Systeme, autonome Robotik und kognitive Technologien",
           "details": "Relevante Kurse:",
           "highlights": [
             "Machine Learning, Introduction to Deep Learning",
             "3D Computer Vision, Advanced Deep Learning for Computer Vision",
             "Roboterdynamik, Regelung moderner Leichtbauroboter, Automone Systeme"
-          ]
+          ],
+          "keySkills": ["Python", "Pandas", "PyTorch", "NumPy", "TensorFlow", "C/C++", "ROS", "Linux", "Docker"],
+          "bannerImage": "/assets/img/tum_1.jpg"
         },
         {
           "id": "uni-stuttgart-bsc-technische-kybernetik",
@@ -26,13 +28,15 @@
           "org": "Universität Stuttgart",
           "location": "Stuttgart Vaihingen",
           "period": "Okt 2020 - Apr 2025",
-          "summary": "Methodenorientiertes Studium der Systemdynamik und Regelungstechnik zur Modellierung und Optimierung komplexer Systeme in den Bereichen Robotik, KI und autonomer Mobilität.",
-          "details": "Bachelorthema: „Weiterentwicklung der Reinforcement‑Learning basierten Betriebsstrategie einer Adsorptionsfassade”. \n \n Relevante Kurse:",
+          "summary": "Methodenorientiertes Studium der Systemdynamik und Regelungstechnik zur Modellierung und Optimierung komplexer Systeme in den Bereichen Robotik, KI und autonomer Mobilität",
+          "details": "Bachelorthema: „Weiterentwicklung der Reinforcement‑Learning basierten Betriebsstrategie einer Adsorptionsfassade” \n \n Relevante Kurse:",
           "highlights": [
             "Programmierung und Softwareentwicklung, Numerische Methoden, Maschinelles Lernen, Reinforcement Learning",
             "Systemdynamik, Mehrgrößenregelung, Simulationstechnik",
             "Elektrische Signalverarbeitung, Technische Mechanik, Thermodynamik"
-          ]
+          ],
+          "keySkills": ["Java", "Python", "NumPy", "Scikit-learn", "MATLAB", "Simulink"],
+          "bannerImage": "/assets/img/uni_stuttgart_1.jpg"
         }
       ]
     },
@@ -41,31 +45,51 @@
       "title": "Berufserfahrung",
       "entries": [
         {
-          "id": "portfolio-under-construction",
-          "title": "Seite ist aktuell im Aufbau",
-          "org": "[Unternehmen]",
-          "orgUrl": "https://example.com",
-          "location": "Remote / Stadt",
-          "period": "20XX–20XX",
-          "summary": "Ein Satz zur Rolle und dem Impact.",
-          "details": "Technologien, Teamgröße, Verantwortung, Ergebnisse.",
-          "highlights": ["Kubernetes", "Python"]
-        }
-      ]
-    },
-    {
-      "id": "projects",
-      "title": "Projekte",
-      "entries": [
+          "id": "tum-social-ai-club-engineer-2026",
+          "title": "KI Entwickler",
+          "org": "TUM Social AI Club",
+          "orgUrl": "https://www.tum-socialaiclub.de/",
+          "location": "München",
+          "period": "seit Mai 2026",
+          "summary": "Entwickler in der studentischen Initiative für KI mit gesellschaftlichem Impact an der TUM.",
+          "details": "Der TUM Social AI Club bringt Studierende mit gemeinnützigen und fortschrittsgetriebenen Organisationen für semesterlange KI-Projekte zusammen. Partner und Supporter wie unter anderem OpenAI und AWS unterstützen die Arbeit des Clubs.\n \nTätigkeiten:",
+          "highlights": [
+            "Technische Mitarbeit an Club-Projekten (Analyse, Entwicklung, Testing, Umsetzung)",
+            "Interdisziplinäre Zusammenarbeit im Engineering-Team"
+          ],
+          "keySkills": [],
+          "bannerImage": "/assets/img/tum_social_ai_club.svg"
+        },
         {
-          "id": "project-placeholder",
-          "title": "[Projekttitel]",
-          "org": "Eigenes Projekt / Team / Kurs",
-          "location": "",
-          "period": "20XX",
-          "summary": "Ein Satz: Problem, Rolle, Ergebnis.",
-          "details": "Tech-Stack, Link zum Repo oder Demo, Herausforderungen.",
-          "highlights": ["Technologie A", "Technologie B"]
+          "id": "isys-stuttgart-hilfskraft-2025",
+          "title": "Studentische Forschungsassistenz",
+          "org": "Institut für Systemdynamik, Universität Stuttgart",
+          "orgUrl": "https://www.isys.uni-stuttgart.de/",
+          "location": "Stuttgart Vaihingen",
+          "period": "Jun 2025 – Sep 2025",
+          "summary": "Fortsetzung der in der Bachelorarbeit betriebenen Forschung: Optimierung der Betriebsstrategie einer Adsorptionsfassade mit Deep Reinforcement Learning",
+          "details": "Das ISYS entwickelt und implementiert systemtheoretische Methoden zur Modellierung, Simulation und Regelung komplexer dynamischer Systeme in Disziplinen wie Robotik, Automobiltechnik und Medizintechnik.\n \nTätigkeiten:",
+          "highlights": [
+            "Implementation neuer Bewertungsmetriken",
+            "Optimierung der Trainingspipeline",
+            "Architektur Refinement des Deep-RL Modells",
+            "Parameter Optimierung"
+          ],
+          "keySkills": ["MATLAB"],
+          "bannerImage": "/assets/img/isys_1.png"
+        },
+        {
+          "id": "faro-europe-praktikum-2019",
+          "title": "Praktikant bei FARO Labs",
+          "org": "FARO Europe GmbH & Co. KG",
+          "orgUrl": "https://www.faro.com",
+          "location": "Korntal‑Münchingen",
+          "period": "Nov 2019 – Sep 2020",
+          "summary": "Elfmonatiges Vollzeitpraktikum in der Entwicklungsabteilung Faro‑Labs",
+          "details": "Die FARO Europe GmbH & Co. KG entwickelt und vertreibt weltweit portable 3D-Mess- und Imaging-Systeme.\n \n Tätigkeiten:",
+          "highlights": ["Automatisierung von UI-, Unit- und API-Tests", "Design und Implementierung eines Noise-Filters für einen Prototypen", "Implementierung eines Systemdiagnose Moduls", "SLAM Auswertung"],
+          "keySkills": ["ROS", "C/C++", "Python", "JavaScript", "TestComplete", "Jira", "Confluence"],
+          "bannerImage": "/assets/img/faro_1.jpg"
         }
       ]
     },
@@ -74,14 +98,16 @@
       "title": "Engagement",
       "entries": [
         {
-          "id": "extracurricular-placeholder",
-          "title": "[Verein / Initiative / Team]",
-          "org": "[Organisation]",
-          "location": "",
-          "period": "20XX–heute",
-          "summary": "Kurzbeschreibung Engagements (z. B. Vorstand, Mentoring, Hackathons).",
-          "details": "Mehr Details: Rolle, Umfang, Ergebnisse — hier ausklappbar.",
-          "highlights": ["Stichpunkt 1", "Stichpunkt 2"]
+          "id": "tsv-korntal-jugendtrainer",
+          "title": "Fußball Jugendtrainer",
+          "org": "TSV Korntal – Fußballabteilung",
+          "location": "Korntal‑Münchingen",
+          "period": "Jan. 2020 – Apr. 2022",
+          "summary": "Cheftrainer der E‑Jugend",
+          "details": "Tätigkeiten:",
+          "highlights": ["Organisation und Betreuung von Training, Spielen und Turnieren", "Teammanagement, u.a. Ausstattung", "Kommunikation mit Vereinsführung und Eltern"],
+          "keySkills": [],
+          "bannerImage": "/assets/img/tsv_korntal_1.jpg"
         }
       ]
     }

@@ -1,0 +1,48 @@
+{
+  "intro": "A selection of relevant technologies and methods — extend as needed.",
+  "groups": [
+    {
+      "id": "programming",
+      "title": "Programming",
+      "items": [
+        { "label": "Python", "icon": "python" },
+        { "label": "C/C++", "icon": "cpp" },
+        { "label": "MATLAB", "icon": "matlab" },
+        { "label": "Java", "icon": "java" },
+        { "label": "JavaScript", "icon": "javascript" }
+      ]
+    },
+    {
+      "id": "ml",
+      "title": "ML & data",
+      "items": [
+        { "label": "PyTorch", "icon": "pytorch" },
+        { "label": "NumPy", "icon": "numpy" },
+        { "label": "scikit-learn", "icon": "scikitlearn" },
+        { "label": "Pandas", "icon": "pandas" }
+      ]
+    },
+    {
+      "id": "tools",
+      "title": "Tools",
+      "items": [
+        { "label": "Git", "icon": "git" },
+        { "label": "Linux", "icon": "linux" },
+        { "label": "Docker", "icon": "docker" },
+        { "label": "ROS", "icon": "ros" },
+        { "label": "VS Code", "icon": "vscode" },
+        { "label": "Jira", "icon": "jira" },
+        { "label": "Confluence", "icon": "confluence" }
+      ]
+    },
+    {
+      "id": "sprachen",
+      "title": "Languages",
+      "items": [
+        { "label": "German — native speaker", "icon": "flag-de" },
+        { "label": "English — IELTS band score 8.0", "icon": "flag-gb" },
+        { "label": "French — basic knowledge", "icon": "flag-fr" }
+      ]
+    }
+  ]
+}

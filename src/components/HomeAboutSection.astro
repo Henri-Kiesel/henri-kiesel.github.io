@@ -1,0 +1,72 @@
+---
+/** Nur Startseite: About, Schnellzugriff, TUM-Bild */
+interface Ui {
+  aboutHeading: string;
+  aboutIntro: string;
+  homeQuickNavAria: string;
+  navCv: string;
+  navProjects: string;
+  navSkills: string;
+}
+
+interface Props {
+  lang: 'de' | 'en';
+  ui: Ui;
+  cvHref: string;
+  projectsHref: string;
+  skillsHref: string;
+}
+
+const { lang, ui, cvHref, projectsHref, skillsHref } = Astro.props;
+const tumAlt = lang === 'de' ? 'Technische Universität München' : 'Technical University of Munich';
+---
+
+<section class="home-about" aria-labelledby="home-about-heading">
+  <h2 class="home-about-title" id="home-about-heading">
+    {ui.aboutHeading}
+  </h2>
+  <p class="home-about-intro">{ui.aboutIntro}</p>
+
+  <nav class="home-quick-nav" aria-label={ui.homeQuickNavAria}>
+    <ul class="home-quick-list">
+      <li>
+        <a class="home-quick-link" href={cvHref}>
+          <span class="home-quick-link-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" />
+            </svg>
+          </span>
+          <span class="home-quick-link-label">{ui.navCv}</span>
+        </a>
+      </li>
+      <li>
+        <a class="home-quick-link" href={projectsHref}>
+          <span class="home-quick-link-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+              <path d="M12 11v6M9 14h6" />
+            </svg>
+          </span>
+          <span class="home-quick-link-label">{ui.navProjects}</span>
+        </a>
+      </li>
+      <li>
+        <a class="home-quick-link" href={skillsHref}>
+          <span class="home-quick-link-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" />
+              <path d="M22 17.65l-9.17 4.18a2 2 0 0 1-1.66 0L2 17.65" />
+              <path d="M22 12.65l-9.17 4.18a2 2 0 0 1-1.66 0L2 12.65" />
+            </svg>
+          </span>
+          <span class="home-quick-link-label">{ui.navSkills}</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="home-tum-visual">
+    <img src="/assets/img/tum_1.jpg" alt={tumAlt} class="home-tum-img" loading="lazy" decoding="async" />
+  </div>
+</section>

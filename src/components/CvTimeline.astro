@@ -1,11 +1,16 @@
 ---
 import type { CvDocument } from '../types/cv';
+import uiDe from '../data/ui.de.json';
+import uiEn from '../data/ui.en.json';
 
 interface Props {
   cv: CvDocument;
+  lang?: 'de' | 'en';
 }
 
-const { cv } = Astro.props;
+const { cv, lang = 'de' } = Astro.props;
+const ui = lang === 'en' ? uiEn : uiDe;
+const keySkillsHeading = ui.cvKeySkillsHeading;
 ---
 
 {
@@ -14,38 +19,55 @@ const { cv } = Astro.props;
       <h2 class="cv-section-heading" id={`heading-${section.id}`}>{section.title}</h2>
       <div class="cv-list">
         {section.entries.map((entry) => (
-          <details class="cv-entry" id={entry.id} name={`group-${section.id}`}>
+          <details
+            class:list={['cv-entry', entry.bannerImage ? 'cv-entry--has-banner' : null]}
+            id={entry.id}
+            name={`group-${section.id}`}
+          >
             <summary>
-              <div class="summary-top">
-                <span class="summary-title">
-                  {entry.programUrl ? (
-                    <a class="cv-in-summary" href={entry.programUrl} target="_blank" rel="noopener noreferrer">
-                      {entry.title}
+              {
+                entry.bannerImage ? (
+                  <img
+                    class="cv-entry-banner"
+                    src={entry.bannerImage}
+                    alt={`${entry.title}, ${entry.org}`}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ) : null
+              }
+              <div class="cv-entry-summary-inner">
+                <div class="summary-top">
+                  <span class="summary-title">
+                    {entry.programUrl ? (
+                      <a class="cv-in-summary" href={entry.programUrl} target="_blank" rel="noopener noreferrer">
+                        {entry.title}
+                      </a>
+                    ) : (
+                      entry.title
+                    )}
+                  </span>
+                  <span class="summary-end">
+                    <span class="period">{entry.period}</span>
+                    <span class="disclosure-chevron" aria-hidden="true">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 6l6 6-6 6" />
+                      </svg>
+                    </span>
+                  </span>
+                </div>
+                <span class="summary-org">
+                  {entry.orgUrl ? (
+                    <a class="cv-in-summary" href={entry.orgUrl} target="_blank" rel="noopener noreferrer">
+                      {entry.org}
                     </a>
                   ) : (
-                    entry.title
+                    entry.org
                   )}
+                  {entry.location ? <span class="org-location"> · {entry.location}</span> : null}
                 </span>
-                <span class="summary-end">
-                  <span class="period">{entry.period}</span>
-                  <span class="disclosure-chevron" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M9 6l6 6-6 6" />
-                    </svg>
-                  </span>
-                </span>
+                <p class="entry-summary-line">{entry.summary}</p>
               </div>
-              <span class="summary-org">
-                {entry.orgUrl ? (
-                  <a class="cv-in-summary" href={entry.orgUrl} target="_blank" rel="noopener noreferrer">
-                    {entry.org}
-                  </a>
-                ) : (
-                  entry.org
-                )}
-                {entry.location ? <span class="org-location"> · {entry.location}</span> : null}
-              </span>
-              <p class="entry-summary-line">{entry.summary}</p>
             </summary>
             <div class="body">
               {entry.details && <p>{entry.details}</p>}
@@ -55,6 +77,18 @@ const { cv } = Astro.props;
                     <li>{h}</li>
                   ))}
                 </ul>
+              )}
+              {entry.keySkills && entry.keySkills.length > 0 && (
+                <div class="cv-entry-keyskills">
+                  <p class="cv-entry-keyskills-label">{keySkillsHeading}</p>
+                  <ul class="skills-pills cv-entry-keyskills-list">
+                    {entry.keySkills.map((skill) => (
+                      <li>
+                        <span class="skill-pill">{skill}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               )}
             </div>
           </details>

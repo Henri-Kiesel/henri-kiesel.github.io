@@ -1,0 +1,27 @@
+---
+import SiteChrome from '../../components/SiteChrome.astro';
+import SkillsSection from '../../components/SkillsSection.astro';
+import site from '../../data/site.json';
+import skills from '../../data/skills.de.json';
+import ui from '../../data/ui.de.json';
+import type { SiteConfig } from '../../types/site';
+import type { SkillsDocument } from '../../types/skills';
+
+const typedSite = site as SiteConfig;
+const typedSkills = skills as SkillsDocument;
+const canonicalHref = new URL(Astro.url.pathname, Astro.site ?? new URL('https://henri-kiesel.github.io/')).href;
+---
+
+<SiteChrome
+  lang="de"
+  site={typedSite}
+  ui={ui}
+  activeNav="skills"
+  title={ui.metaTitleSkills}
+  description={ui.metaDescriptionSkills}
+  canonicalHref={canonicalHref}
+  alternatePath="/en/skills/"
+  nextLocale="en"
+>
+  <SkillsSection doc={typedSkills} />
+</SiteChrome>

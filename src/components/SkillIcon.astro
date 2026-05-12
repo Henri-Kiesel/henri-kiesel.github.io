@@ -1,0 +1,104 @@
+---
+/**
+ * Marken-Icons (simple-icons, CC0), Flaggen als SVG (Windows-tauglich), wenige lokale SVGs.
+ * Schlüssel = `icon` in skills.*.json
+ */
+import type { SimpleIcon } from 'simple-icons';
+import {
+  siConfluence,
+  siCplusplus,
+  siDocker,
+  siGit,
+  siJavascript,
+  siJira,
+  siLinux,
+  siNumpy,
+  siOpenaigym,
+  siOpenjdk,
+  siPandas,
+  siPytorch,
+  siPython,
+  siRos,
+  siScikitlearn,
+} from 'simple-icons';
+
+const simple: Record<string, SimpleIcon> = {
+  python: siPython,
+  cpp: siCplusplus,
+  java: siOpenjdk,
+  javascript: siJavascript,
+  pytorch: siPytorch,
+  numpy: siNumpy,
+  scikitlearn: siScikitlearn,
+  pandas: siPandas,
+  openaigym: siOpenaigym,
+  git: siGit,
+  linux: siLinux,
+  docker: siDocker,
+  ros: siRos,
+  jira: siJira,
+  confluence: siConfluence,
+};
+
+interface Props {
+  icon: string;
+}
+
+const { icon } = Astro.props;
+const si = simple[icon];
+---
+
+{
+  si ? (
+    <svg
+      class="skill-pill-icon skill-pill-icon--brand"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <title>{si.title}</title>
+      <path fill={`#${si.hex}`} d={si.path} />
+    </svg>
+  ) : icon === 'vscode' ? (
+    <svg class="skill-pill-icon skill-pill-icon--vscode" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <title>Visual Studio Code</title>
+      <path
+        fill="none"
+        stroke="#007ACC"
+        stroke-width="2.25"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="m15 18-6-6 6-6M9 12h8.5"
+      />
+    </svg>
+  ) : icon === 'matlab' ? (
+    <svg class="skill-pill-icon skill-pill-icon--matlab" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <title>MATLAB</title>
+      <rect width="24" height="24" rx="4" fill="#E16723" />
+      <text x="12" y="16" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="system-ui, sans-serif">M</text>
+    </svg>
+  ) : icon === 'flag-de' ? (
+    <svg class="skill-pill-icon skill-pill-icon--flag" viewBox="0 0 5 3" aria-hidden="true" focusable="false">
+      <title>Deutschland</title>
+      <rect width="5" height="1" y="0" fill="#000" />
+      <rect width="5" height="1" y="1" fill="#D00" />
+      <rect width="5" height="1" y="2" fill="#FFCE00" />
+    </svg>
+  ) : icon === 'flag-gb' ? (
+    <svg class="skill-pill-icon skill-pill-icon--flag" viewBox="0 0 60 30" aria-hidden="true" focusable="false">
+      <title>Vereinigtes Königreich</title>
+      <path fill="#012169" d="M0 0h60v30H0z" />
+      <path stroke="#fff" stroke-width="10" d="M0 0l60 30M60 0L0 30" />
+      <path stroke="#C8102E" stroke-width="6" d="M0 0l60 30M60 0L0 30" />
+      <path stroke="#fff" stroke-width="12" d="M30 0v30M0 15h60" />
+      <path stroke="#C8102E" stroke-width="8" d="M30 0v30M0 15h60" />
+    </svg>
+  ) : icon === 'flag-fr' ? (
+    <svg class="skill-pill-icon skill-pill-icon--flag" viewBox="0 0 3 2" aria-hidden="true" focusable="false">
+      <title>Frankreich</title>
+      <rect width="1" height="2" x="0" fill="#002395" />
+      <rect width="1" height="2" x="1" fill="#fff" />
+      <rect width="1" height="2" x="2" fill="#ED2939" />
+    </svg>
+  ) : null
+}

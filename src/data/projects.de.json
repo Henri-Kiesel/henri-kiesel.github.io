@@ -1,0 +1,66 @@
+{
+  "sectionTitle": "Projekte",
+  "entries": [
+    {
+      "id": "advanced-deep-learning-cv",
+      "title": "HDRI Map Estimation from Single Face Portrait",
+      "org": "Technische Universität München · Lehrveranstaltung",
+      "location": "München",
+      "period": "seit Apr 2026",
+      "summary": "Aktuelles Uni‑Projekt im Rahmen der Master‑LV: tiefe neuronale Netze für Bildverständnis, Training, Evaluation und Anwendung moderner CV‑Architekturen.",
+      "details": "Praktische Arbeit mit typischen Vision‑Pipelines (Daten, Augmentation, Modelle, Metriken); Fokus auf das methodische Vorgehen und reproduzierbare Experimente.",
+      "highlights": ["Deep Learning", "Computer Vision", "PyTorch"],
+      "keySkills": ["Python", "CNNs / ViTs"],
+      "bannerImage": "/assets/img/hdri_estimation_1.png"
+    },
+    {
+      "id": "autonome-systeme",
+      "title": "Autonome Systeme: Semesterprojekt",
+      "org": "Technische Universität München · Lehrveranstaltung",
+      "location": "München",
+      "period": "Okt 2025 – Mär 2026",
+      "summary": "Projektarbeit im Modul Autonome Systeme: Wahrnehmung, Zustandsschätzung und Steuerung für ein mobiles Robotersystem.",
+      "details": "Konzeption und Umsetzung von Teilen der Wahrnehmungs‑ und Regelkette (z. B. Lokalisierung, Trajektorienfolge oder Sicherheitsüberwachung) im Teamsetting; Einbindung in eine ROS‑basierte Softwarearchitektur.",
+      "highlights": ["Mobile Robotik", "ROS", "Regelung / Schätzung"],
+      "keySkills": ["ROS", "Python", "MATLAB", "Regelungstechnik"],
+      "bannerImage": "/assets/img/autonome_systeme_2.JPG"
+    },
+    {
+      "id": "adsorption-fassade-rl",
+      "title": "Adsorptionsfassade: RL‑Betriebsstrategie",
+      "org": "Institut für Systemdynamik / Bachelorarbeit",
+      "location": "Stuttgart",
+      "period": "2024–2025",
+      "summary": "Weiterentwicklung und Optimierung einer reinforcement‑learning‑basierten Betriebsstrategie für eine adsorbierende Gebäudefassade.",
+      "details": "Anschluss an studentische Hilfstätigkeit und Forschung am ISYS; Fokus auf Strategieverbesserung und Übertragbarkeit der RL‑Steuerung.",
+      "highlights": ["Reinforcement Learning", "Python", "Energie / Gebäude"],
+      "keySkills": ["RL", "Python", "Gebäudeenergie", "Simulation"],
+      "bannerImage": "/assets/img/isys_1.png"
+    },
+    {
+      "id": "ist-projektwettbewerb",
+      "title": "IST‑Projektwettbewerb: Einführung in die Regelungstechnik",
+      "org": "Institut für Systemtheorie und Regelungstechnik (IST), Universität Stuttgart",
+      "orgUrl": "https://www.ist.uni-stuttgart.de/de/",
+      "location": "Stuttgart Vaihingen",
+      "period": "Apr – Jul 2024",
+      "summary": "Erreichen des zweiten Platzes im Projektwettbewerb am Institut für Systemtheorie und Regelungstechnik (IST)",
+      "details": "Teamprojekt im Wettbewerbsformat des IST mit Ausarbeitung und Präsentation der Projektergebnisse.\n Aufgabe: Möglichst schnelles Anfahren verschiedener Positionen eines Hafenkrans mit aktiver Schwingungsdämpfung \n \n Implementierung:",
+      "highlights": ["Vorsteuerung und Trajektorienplanung", "Beobachter mit Zustandsrückführung"],
+      "keySkills": ["MATLAB", "Simulink"],
+      "bannerImage": "/assets/img/ist_wettbewerb_controller.png"
+    },
+    {
+      "id": "faro-labs-test-automation",
+      "title": "Faro‑Labs: Testautomatisierung & Diagnose",
+      "org": "FARO Europe GmbH & Co. KG",
+      "location": "Korntal‑Münchingen",
+      "period": "2019–2020",
+      "summary": "UI‑ und API‑Tests für eingebettete Firmware sowie Diagnose‑ und Filtermodule rund um SLAM und Punktwolken.",
+      "details": "JavaScript‑basierte UI‑Tests (TestComplete); embedded Tests mit C++/Python in ROS; Überwachung von Systemzuständen und Qualitätsbewertung.",
+      "highlights": ["ROS", "JavaScript", "C++"],
+      "keySkills": ["TestComplete", "ROS", "Embedded", "SLAM"],
+      "bannerImage": "/assets/img/faro_1.jpg"
+    }
+  ]
+}

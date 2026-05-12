@@ -1,0 +1,48 @@
+{
+  "intro": "Auswahl relevanter Technologien und Methoden — ergänze nach Bedarf.",
+  "groups": [
+    {
+      "id": "programming",
+      "title": "Programmierung",
+      "items": [
+        { "label": "Python", "icon": "python" },
+        { "label": "C/C++", "icon": "cpp" },
+        { "label": "MATLAB", "icon": "matlab" },
+        { "label": "Java", "icon": "java" },
+        { "label": "JavaScript", "icon": "javascript" }
+      ]
+    },
+    {
+      "id": "ml",
+      "title": "ML & Daten",
+      "items": [
+        { "label": "PyTorch", "icon": "pytorch" },
+        { "label": "NumPy", "icon": "numpy" },
+        { "label": "scikit-learn", "icon": "scikitlearn" },
+        { "label": "Pandas", "icon": "pandas" }
+      ]
+    },
+    {
+      "id": "tools",
+      "title": "Werkzeuge",
+      "items": [
+        { "label": "Git", "icon": "git" },
+        { "label": "Linux", "icon": "linux" },
+        { "label": "Docker", "icon": "docker" },
+        { "label": "ROS", "icon": "ros" },
+        { "label": "VS Code", "icon": "vscode" },
+        { "label": "Jira", "icon": "jira" },
+        { "label": "Confluence", "icon": "confluence" }
+      ]
+    },
+    {
+      "id": "sprachen",
+      "title": "Sprachen",
+      "items": [
+        { "label": "Deutsch — Muttersprache", "icon": "flag-de" },
+        { "label": "Englisch — IELTS Band Score 8.0", "icon": "flag-gb" },
+        { "label": "Französisch — Grundkenntnisse", "icon": "flag-fr" }
+      ]
+    }
+  ]
+}

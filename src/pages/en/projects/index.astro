@@ -1,0 +1,46 @@
+---
+import SiteChrome from '../../../components/SiteChrome.astro';
+import CvSectionNav from '../../../components/CvSectionNav.astro';
+import CvTimeline from '../../../components/CvTimeline.astro';
+import site from '../../../data/site.json';
+import projects from '../../../data/projects.en.json';
+import ui from '../../../data/ui.en.json';
+import type { SiteConfig } from '../../../types/site';
+import type { CvDocument } from '../../../types/cv';
+import type { ProjectsDocument } from '../../../types/projects';
+
+const typedSite = site as SiteConfig;
+const typedProjects = projects as ProjectsDocument;
+const cvDoc: CvDocument = {
+  sections: [
+    {
+      id: 'projects',
+      title: typedProjects.sectionTitle,
+      entries: typedProjects.entries,
+    },
+  ],
+};
+const canonicalHref = new URL(Astro.url.pathname, Astro.site ?? new URL('https://henri-kiesel.github.io/')).href;
+---
+
+<SiteChrome
+  lang="en"
+  site={typedSite}
+  ui={ui}
+  activeNav="projects"
+  title={ui.metaTitleProjects}
+  description={ui.metaDescriptionProjects}
+  canonicalHref={canonicalHref}
+  alternatePath="/projekte/"
+  nextLocale="de"
+>
+  <div class="cv-layout" id="projects">
+    <aside class="cv-sidebar">
+      <p class="cv-section-heading">{ui.cvNavHeading}</p>
+      <CvSectionNav sections={[{ id: 'projects', title: typedProjects.sectionTitle }]} ariaLabel={ui.cvNavAria} />
+    </aside>
+    <div class="cv-main">
+      <CvTimeline cv={cvDoc} lang="en" />
+    </div>
+  </div>
+</SiteChrome>

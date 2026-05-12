@@ -3,10 +3,13 @@ import type { SiteConfig } from '../types/site';
 
 interface Props {
   site: SiteConfig;
+  emailLabel: string;
+  emailCopied: string;
 }
 
-const { site } = Astro.props;
+const { site, emailLabel, emailCopied } = Astro.props;
 const { social } = site;
+const email = typeof site.email === 'string' ? site.email.trim() : '';
 
 const labelMap: Record<string, string> = {
   github: 'GitHub',
@@ -29,7 +32,7 @@ const items = (Object.entries(social) as [string, string | undefined][])
 ---
 
 {
-  items.length > 0 && (
+  (items.length > 0 || email) && (
     <div class="social-row">
       {items.map(({ href, label, icon }) => (
         <a class="social-link" href={href} target="_blank" rel="noopener noreferrer">
@@ -46,6 +49,47 @@ const items = (Object.entries(social) as [string, string | undefined][])
           {label}
         </a>
       ))}
+      {email ? (
+        <button type="button" class="social-link social-email" data-copy-email={email} aria-label={emailLabel}>
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M4 6h16v12H4z" />
+            <path d="M4 8l8 5 8-5" />
+          </svg>
+          {emailLabel}
+        </button>
+      ) : null}
+      <span class="copy-toast" role="status" aria-live="polite" hidden data-email-toast>
+        {emailCopied}
+      </span>
     </div>
   )
 }
+
+<script define:vars={{ emailCopiedMsg: emailCopied }}>
+  function initEmailCopy() {
+    var btn = document.querySelector('[data-copy-email]');
+    var toast = document.querySelector('[data-email-toast]');
+    if (!(btn instanceof HTMLButtonElement) || !(toast instanceof HTMLElement)) return;
+    var email = btn.getAttribute('data-copy-email') || '';
+    var hideTimer = 0;
+    btn.addEventListener('click', function () {
+      function show() {
+        toast.hidden = false;
+        window.clearTimeout(hideTimer);
+        hideTimer = window.setTimeout(function () {
+          toast.hidden = true;
+        }, 2200);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(show).catch(function () {
+          toast.textContent = emailCopiedMsg;
+          show();
+        });
+      } else {
+        toast.textContent = emailCopiedMsg;
+        show();
+      }
+    });
+  }
+  initEmailCopy();
+</script>

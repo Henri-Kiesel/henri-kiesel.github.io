@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from './SiteHeader.astro';
+import HeroSection from './HeroSection.astro';
+import HomeAboutSection from './HomeAboutSection.astro';
+import cvDe from '../data/cv.de.json';
+import cvEn from '../data/cv.en.json';
+import projectsDe from '../data/projects.de.json';
+import projectsEn from '../data/projects.en.json';
+import skillsDe from '../data/skills.de.json';
+import skillsEn from '../data/skills.en.json';
+import { buildSearchItems } from '../lib/searchIndex';
+import type { SiteConfig } from '../types/site';
+import type { CvDocument } from '../types/cv';
+import type { ProjectsDocument } from '../types/projects';
+import type { SkillsDocument } from '../types/skills';
+import uiDe from '../data/ui.de.json';
+
+type Ui = typeof uiDe;
+
+interface Props {
+  lang: 'de' | 'en';
+  site: SiteConfig;
+  ui: Ui;
+  activeNav: 'home' | 'cv' | 'projects' | 'skills';
+  title: string;
+  description: string;
+  canonicalHref: string;
+  alternatePath: string;
+  nextLocale: 'de' | 'en';
+}
+
+const { lang, site, ui, activeNav, title, description, canonicalHref, alternatePath, nextLocale } = Astro.props;
+
+const cv = (lang === 'de' ? cvDe : cvEn) as CvDocument;
+const projects = (lang === 'de' ? projectsDe : projectsEn) as ProjectsDocument;
+const skills = (lang === 'de' ? skillsDe : skillsEn) as SkillsDocument;
+
+const searchItems = buildSearchItems(lang, ui, cv, projects, skills);
+
+const homeHref = lang === 'de' ? '/' : '/en/';
+const cvHref = lang === 'de' ? '/lebenslauf/' : '/en/cv/';
+const projectsHref = lang === 'de' ? '/projekte/' : '/en/projects/';
+const skillsHref = lang === 'de' ? '/faehigkeiten/' : '/en/skills/';
+const pageLabel =
+  activeNav === 'cv'
+    ? ui.navCv
+    : activeNav === 'projects'
+      ? ui.navProjects
+      : activeNav === 'skills'
+        ? ui.navSkills
+        : undefined;
+---
+
+<BaseLayout lang={lang} title={title} description={description} skipToContent={ui.skipToContent} canonicalHref={canonicalHref}>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a
+        class:list={['brand', 'brand-home', { 'is-active': activeNav === 'home' }]}
+        href={homeHref}
+        aria-current={activeNav === 'home' ? 'page' : undefined}
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+          <polyline points="9 22 9 12 15 12 15 22" />
+        </svg>
+        <span>{ui.navHome}</span>
+      </a>
+      <SiteHeader
+        lang={lang}
+        ui={ui}
+        cvHref={cvHref}
+        projectsHref={projectsHref}
+        skillsHref={skillsHref}
+        alternatePath={alternatePath}
+        nextLocale={nextLocale}
+        activeNav={activeNav}
+        searchItems={searchItems}
+      />
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <HeroSection
+        lang={lang}
+        site={site}
+        ui={ui}
+        isPrimaryHeading={activeNav === 'home'}
+        pageLabel={pageLabel}
+      />
+      {activeNav === 'home' ? (
+        <HomeAboutSection lang={lang} ui={ui} cvHref={cvHref} projectsHref={projectsHref} skillsHref={skillsHref} />
+      ) : null}
+      <slot />
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>
+        {ui.footerBuilt}:
+        <a href={site.repoUrl} target="_blank" rel="noopener noreferrer">GitHub</a>
+      </p>
+    </div>
+  </footer>
+</BaseLayout>

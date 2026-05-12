@@ -1,13 +1,21 @@
 ---
-import HomePage from '../components/HomePage.astro';
+import SiteChrome from '../components/SiteChrome.astro';
 import site from '../data/site.json';
-import cv from '../data/cv.de.json';
 import ui from '../data/ui.de.json';
 import type { SiteConfig } from '../types/site';
-import type { CvDocument } from '../types/cv';
 
 const typedSite = site as SiteConfig;
-const typedCv = cv as CvDocument;
+const canonicalHref = new URL(Astro.url.pathname, Astro.site ?? new URL('https://henri-kiesel.github.io/')).href;
 ---
 
-<HomePage lang="de" site={typedSite} cv={typedCv} ui={ui} alternatePath="/en/" nextLocale="en" />
+<SiteChrome
+  lang="de"
+  site={typedSite}
+  ui={ui}
+  activeNav="home"
+  title={ui.metaTitleHome}
+  description={ui.metaDescription}
+  canonicalHref={canonicalHref}
+  alternatePath="/en/"
+  nextLocale="en"
+/>

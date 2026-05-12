@@ -1,0 +1,44 @@
+---
+import SkillIcon from './SkillIcon.astro';
+import { skillItemIcon, skillItemLabel } from '../lib/skillItem';
+import type { SkillsDocument } from '../types/skills';
+
+interface Props {
+  doc: SkillsDocument;
+}
+
+const { doc } = Astro.props;
+---
+
+<div class="skills-page">
+  {
+    doc.intro ? (
+      <p class="skills-intro">{doc.intro}</p>
+    ) : null
+  }
+  <div class="skills-groups">
+    {
+      doc.groups.map((g) => (
+        <section class="skills-group" id={g.id} aria-labelledby={`skills-h-${g.id}`}>
+          <h2 class="skills-group-title" id={`skills-h-${g.id}`}>
+            {g.title}
+          </h2>
+          <ul class="skills-pills">
+            {g.items.map((item) => {
+              const label = skillItemLabel(item);
+              const icon = skillItemIcon(item);
+              return (
+                <li>
+                  <span class="skill-pill">
+                    {icon ? <SkillIcon icon={icon} /> : null}
+                    <span class="skill-pill-text">{label}</span>
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      ))
+    }
+  </div>
+</div>
