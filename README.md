@@ -1,4 +1,4 @@
-# henri-kiesel.github.io
+# Site is still under construction, extended readme will follow
 
 Persönliche Website (Astro), deployed über **GitHub Actions** auf **GitHub Pages**.
 
