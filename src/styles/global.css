@@ -400,10 +400,44 @@ html[data-theme='light'] .theme-toggle-sun {
 }
 
 @media (min-width: 560px) {
-  .hero {
+  .hero:not(.hero--landing) {
     grid-template-columns: auto 1fr;
     gap: 2rem;
   }
+}
+
+/* Startseite: Foto oben, Name, Tagline und Socials zentriert */
+.hero.hero--landing {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  text-align: center;
+  padding-block: 2.25rem 1.75rem;
+}
+
+.hero.hero--landing > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: min(36rem, 100%);
+}
+
+.hero.hero--landing .hero-photo-trigger {
+  margin-inline: auto;
+}
+
+.hero.hero--landing .tagline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.hero.hero--landing .tagline-location {
+  margin-left: 0;
+}
+
+.hero.hero--landing .social-row {
+  justify-content: center;
 }
 
 .hero-photo-trigger {
@@ -529,6 +563,34 @@ html[data-theme='light'] .theme-toggle-sun {
   padding-bottom: 1.5rem;
 }
 
+.home-about.home-about--landing {
+  text-align: center;
+}
+
+.home-about.home-about--landing .home-about-title {
+  margin-inline: auto;
+}
+
+.home-about.home-about--landing .home-about-intro {
+  margin-inline: auto;
+  max-width: min(52rem, 100%);
+}
+
+.home-about.home-about--landing .home-quick-nav {
+  display: flex;
+  justify-content: center;
+}
+
+.home-about.home-about--landing .home-quick-list {
+  justify-content: center;
+  align-items: center;
+}
+
+.home-about.home-about--landing .home-tum-visual {
+  max-width: min(52rem, 100%);
+  margin-inline: auto;
+}
+
 .home-about-title {
   margin: 0 0 0.65rem;
   font-size: 1.05rem;
@@ -539,7 +601,7 @@ html[data-theme='light'] .theme-toggle-sun {
 
 .home-about-intro {
   margin: 0 0 1.35rem;
-  max-width: 52ch;
+  max-width: min(68ch, 100%);
   color: var(--text-muted);
   font-size: 0.98rem;
   line-height: 1.55;
@@ -698,6 +760,483 @@ html[data-theme='light'] .theme-toggle-sun {
   scroll-margin-top: 5rem;
 }
 
+.cv-sidebar-download {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
+}
+
+.cv-sidebar-download .cv-download-wrap {
+  margin: 0;
+}
+
+.cv-sidebar-download .cv-download-trigger {
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+.cv-download-wrap {
+  margin: 0 0 0.25rem;
+}
+
+.cv-download-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.95rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease,
+    background 0.15s ease;
+}
+
+.cv-download-trigger:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.cv-download-trigger svg {
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+.cv-download-trigger:hover svg {
+  opacity: 1;
+  color: var(--accent);
+}
+
+.cv-download-dialog {
+  padding: 0;
+  border: none;
+  max-width: min(92vw, 22rem);
+  background: transparent;
+}
+
+.cv-download-dialog::backdrop {
+  background: color-mix(in oklab, var(--bg) 45%, #000 55%);
+  backdrop-filter: blur(4px);
+}
+
+.cv-download-dialog-panel {
+  position: relative;
+  padding: 1.15rem 1.15rem 1rem;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 24px 60px color-mix(in oklab, var(--text) 18%, transparent);
+}
+
+.cv-download-dialog-panel h2 {
+  margin: 0 0 0.4rem;
+  font-size: 1.05rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  padding-right: 2.25rem;
+}
+
+.cv-download-dialog-hint {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.cv-download-dialog-close {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.65rem;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  margin: 0;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  cursor: pointer;
+  line-height: 0;
+}
+
+.cv-download-dialog-close:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.cv-download-dialog-close svg {
+  display: block;
+  width: 14px;
+  height: 14px;
+}
+
+.cv-download-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cv-download-actions a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 0.85rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease,
+    background 0.15s ease;
+}
+
+.cv-download-actions a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.cv-download-cancel {
+  margin-top: 0.65rem;
+  width: 100%;
+  padding: 0.45rem 0.75rem;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+
+.cv-download-cancel:hover {
+  color: var(--text);
+}
+
+.welcome-dialog {
+  padding: 0;
+  border: none;
+  max-width: min(92vw, 24rem);
+  background: transparent;
+  position: relative;
+}
+
+.welcome-dialog::backdrop {
+  background: color-mix(in oklab, var(--bg) 40%, #000 60%);
+  backdrop-filter: blur(4px);
+}
+
+/* Aurora: Vollfläche hinter dem Dialog-Panel (nur sichtbar solange <dialog> offen) */
+.welcome-aurora {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.welcome-aurora__band {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(72px);
+  opacity: 0.42;
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+
+html[data-theme='light'] .welcome-aurora__band {
+  opacity: 0.2;
+  mix-blend-mode: normal;
+}
+
+.welcome-aurora__band--a {
+  width: 165%;
+  height: 42%;
+  left: -32%;
+  top: 8%;
+  background: linear-gradient(
+    118deg,
+    transparent 0%,
+    color-mix(in oklab, #1e4a8c 70%, transparent) 28%,
+    color-mix(in oklab, #3d8aed 75%, transparent) 48%,
+    color-mix(in oklab, #5ec8ff 65%, transparent) 68%,
+    transparent 100%
+  );
+  animation: welcome-aurora-drift-a 22s ease-in-out infinite;
+}
+
+.welcome-aurora__band--b {
+  width: 140%;
+  height: 38%;
+  right: -35%;
+  top: 28%;
+  background: linear-gradient(
+    72deg,
+    transparent 0%,
+    color-mix(in oklab, var(--accent) 55%, transparent) 40%,
+    color-mix(in oklab, #7ae0ff 60%, transparent) 58%,
+    color-mix(in oklab, #2a5cb0 50%, transparent) 78%,
+    transparent 100%
+  );
+  animation: welcome-aurora-drift-b 28s ease-in-out infinite;
+}
+
+.welcome-aurora__band--c {
+  width: 150%;
+  height: 36%;
+  left: -25%;
+  bottom: -5%;
+  background: linear-gradient(
+    95deg,
+    transparent 0%,
+    color-mix(in oklab, #2563c4 55%, transparent) 35%,
+    color-mix(in oklab, var(--accent) 50%, transparent) 55%,
+    color-mix(in oklab, #4fd1ff 45%, transparent) 72%,
+    transparent 100%
+  );
+  animation: welcome-aurora-drift-c 19s ease-in-out infinite;
+}
+
+@keyframes welcome-aurora-drift-a {
+  0%,
+  100% {
+    transform: translate3d(-3%, -2%, 0) rotate(-1.5deg) scale(1);
+  }
+  50% {
+    transform: translate3d(6%, 4%, 0) rotate(2deg) scale(1.04);
+  }
+}
+
+@keyframes welcome-aurora-drift-b {
+  0%,
+  100% {
+    transform: translate3d(4%, 2%, 0) rotate(1deg) scale(1.02);
+  }
+  50% {
+    transform: translate3d(-5%, -3%, 0) rotate(-2deg) scale(1);
+  }
+}
+
+@keyframes welcome-aurora-drift-c {
+  0%,
+  100% {
+    transform: translate3d(2%, 3%, 0) rotate(2deg) scale(1.03);
+  }
+  33% {
+    transform: translate3d(-4%, -2%, 0) rotate(-1deg) scale(0.98);
+  }
+  66% {
+    transform: translate3d(3%, -4%, 0) rotate(1.5deg) scale(1.01);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .welcome-aurora__band {
+    animation: none !important;
+    will-change: auto;
+  }
+}
+
+.welcome-dialog-panel {
+  position: relative;
+  z-index: 1;
+  padding: 1.2rem 1.2rem 1.05rem;
+  border-radius: var(--radius);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 24px 60px color-mix(in oklab, var(--text) 18%, transparent);
+  text-align: center;
+  overflow: hidden;
+  isolation: isolate;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.welcome-dialog-title {
+  margin: 0 0 1rem;
+  font-size: 1.08rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.welcome-fieldset {
+  margin: 0 0 1rem;
+  padding: 0;
+  border: none;
+  min-inline-size: 0;
+  text-align: center;
+}
+
+.welcome-fieldset:last-of-type {
+  margin-bottom: 0;
+}
+
+.welcome-legend {
+  padding: 0;
+  margin: 0 0 0.5rem;
+  width: 100%;
+  max-width: 100%;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.welcome-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  justify-content: center;
+}
+
+.welcome-options--stack {
+  flex-direction: column;
+  align-items: center;
+}
+
+.welcome-choice-btn {
+  display: inline-block;
+  margin: 0;
+  padding: 0.48rem 0.95rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--surface) 92%, var(--bg));
+  color: var(--text);
+  font: inherit;
+  font-size: 0.93rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease,
+    color 0.18s ease,
+    box-shadow 0.22s ease;
+}
+
+.welcome-choice-btn:hover {
+  border-color: color-mix(in oklab, var(--accent) 35%, var(--border));
+  color: var(--text);
+}
+
+.welcome-choice-btn:focus {
+  outline: none;
+}
+
+.welcome-choice-btn:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--accent) 65%, transparent);
+  outline-offset: 2px;
+}
+
+.welcome-choice-btn[aria-checked='true'] {
+  border-color: color-mix(in oklab, var(--accent) 72%, var(--border));
+  background: color-mix(in oklab, var(--accent) 22%, var(--surface));
+  color: var(--text);
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--accent) 45%, transparent),
+    0 0 22px color-mix(in oklab, var(--accent) 38%, transparent),
+    0 0 44px color-mix(in oklab, var(--accent) 18%, transparent);
+}
+
+.welcome-hint {
+  margin: 1.1rem 0 0;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.welcome-cookie-block {
+  margin: 0.05rem 0 0;
+  width: 100%;
+}
+
+.welcome-cookie-img {
+  display: block;
+  max-width: min(200px, 72%);
+  width: 100%;
+  height: auto;
+  margin-top: -1cm;
+  margin-inline: auto;
+}
+
+.welcome-cookie-caption {
+  margin: 0.75rem 0 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  line-height: 1.35;
+  text-align: center;
+}
+
+.welcome-actions {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.welcome-btn {
+  border-radius: 10px;
+  padding: 0.5rem 0.95rem;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease,
+    background 0.15s ease;
+}
+
+.welcome-btn--primary {
+  border: 1px solid color-mix(in oklab, var(--accent) 65%, var(--border));
+  background: color-mix(in oklab, var(--accent) 22%, var(--surface));
+  color: var(--text);
+}
+
+.welcome-btn--primary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.welcome-btn--secondary {
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-muted);
+}
+
+.welcome-btn--secondary:hover {
+  color: var(--text);
+}
+
 .cv-layout {
   display: flex;
   flex-direction: column;
@@ -801,6 +1340,22 @@ html[data-theme='light'] .theme-toggle-sun {
     max-height: calc(100vh - 5.5rem);
     overflow-y: auto;
     padding-right: 0.35rem;
+  }
+
+  /* CV (#cv) und Projekte (#projects): Oberkante erster TOC-Link = Oberkante Banner des ersten Eintrags.
+     padding statt margin-bottom am Label, damit TOC-margin-top nicht mit 1rem kollabiert. */
+  #cv .cv-sidebar > p.cv-section-heading,
+  #projects .cv-sidebar > p.cv-section-heading {
+    margin-bottom: 0;
+    padding-bottom: 1rem;
+  }
+
+  #cv .cv-sidebar > .cv-toc,
+  #projects .cv-sidebar > .cv-toc {
+    margin-top: max(
+      0px,
+      calc(1.25 * clamp(1.05rem, 2.4vw, 1.28rem) + 1.15rem - (0.78rem * 1.35) - 1rem)
+    );
   }
 
   .cv-toc .cv-toc-list {

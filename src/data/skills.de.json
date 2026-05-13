@@ -5,34 +5,60 @@
       "id": "programming",
       "title": "Programmierung",
       "items": [
+        { "label": "Java", "icon": "java" },
         { "label": "Python", "icon": "python" },
         { "label": "C/C++", "icon": "cpp" },
+        { "label": "JavaScript", "icon": "javascript" },
         { "label": "MATLAB", "icon": "matlab" },
-        { "label": "Java", "icon": "java" },
-        { "label": "JavaScript", "icon": "javascript" }
+        { "label": "HTML/CSS", "icon": "html5" }
       ]
     },
     {
       "id": "ml",
       "title": "ML & Daten",
       "items": [
-        { "label": "PyTorch", "icon": "pytorch" },
+        { "label": "pandas", "icon": "pandas" },
         { "label": "NumPy", "icon": "numpy" },
         { "label": "scikit-learn", "icon": "scikitlearn" },
-        { "label": "Pandas", "icon": "pandas" }
+        { "label": "Matplotlib" },
+        { "label": "PyTorch", "icon": "pytorch" },
+        { "label": "TensorFlow", "icon": "tensorflow" }
+      ]
+    },
+    {
+      "id": "systems",
+      "title": "Betriebssysteme",
+      "items": [
+        { "label": "Windows" },
+        { "label": "Linux (Ubuntu)", "icon": "linux" },
+        { "label": "ROS", "icon": "ros" },
+        { "label": "macOS", "icon": "apple" }
       ]
     },
     {
       "id": "tools",
-      "title": "Werkzeuge",
+      "title": "Entwicklerwerkzeuge",
       "items": [
-        { "label": "Git", "icon": "git" },
-        { "label": "Linux", "icon": "linux" },
-        { "label": "Docker", "icon": "docker" },
-        { "label": "ROS", "icon": "ros" },
+        { "label": "Simulink" },
         { "label": "VS Code", "icon": "vscode" },
+        { "label": "Cursor", "icon": "cursor" },
+        { "label": "PyCharm", "icon": "pycharm" },
+        { "label": "IntelliJ IDEA", "icon": "intellijidea" },
+        { "label": "Eclipse", "icon": "eclipseide" },
+        { "label": "Docker", "icon": "docker" },
+        { "label": "Git", "icon": "git" }
+      ]
+    },
+    {
+      "id": "collab",
+      "title": "Zusammenarbeit",
+      "items": [
         { "label": "Jira", "icon": "jira" },
-        { "label": "Confluence", "icon": "confluence" }
+        { "label": "Confluence", "icon": "confluence" },
+        { "label": "Microsoft Office" },
+        { "label": "Slack" },
+        { "label": "GitHub", "icon": "github" },
+        { "label": "GitLab", "icon": "gitlab" }
       ]
     },
     {

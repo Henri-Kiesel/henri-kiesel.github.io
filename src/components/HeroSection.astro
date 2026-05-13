@@ -17,15 +17,17 @@ interface Props {
   isPrimaryHeading?: boolean;
   /** Optionaler Seitenzusatz wie "CV", "Projects" usw. */
   pageLabel?: string;
+  /** Startseite: Foto oben, Name und Socials zentriert */
+  homeHero?: boolean;
 }
 
-const { lang, site, ui, isPrimaryHeading = true, pageLabel } = Astro.props;
+const { lang, site, ui, isPrimaryHeading = true, pageLabel, homeHero = false } = Astro.props;
 const tagline = lang === 'de' ? site.tagline_de : site.tagline_en;
 const location = lang === 'de' ? site.location_de : site.location_en;
 const largeSrc = site.profileImageLarge ?? site.profileImage;
 ---
 
-<section class="hero" aria-labelledby="hero-title">
+<section class:list={['hero', { 'hero--landing': homeHero }]} aria-labelledby="hero-title">
   <button type="button" class="hero-photo-trigger" aria-haspopup="dialog" aria-label={ui.profileExpand} data-open-photo-dialog>
     <img class="hero-photo" src={site.profileImage} width="160" height="160" alt="" loading="eager" />
   </button>

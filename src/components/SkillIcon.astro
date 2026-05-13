@@ -1,14 +1,21 @@
 ---
 /**
  * Marken-Icons (simple-icons, CC0), Flaggen als SVG (Windows-tauglich), wenige lokale SVGs.
- * Schlüssel = `icon` in skills.*.json
+ * Schlüssel = `icon` in skills.*.json (u. a. python, tensorflow, github, cursor, html5, …)
  */
 import type { SimpleIcon } from 'simple-icons';
 import {
+  siApple,
   siConfluence,
   siCplusplus,
+  siCursor,
   siDocker,
+  siEclipseide,
   siGit,
+  siGithub,
+  siGitlab,
+  siHtml5,
+  siIntellijidea,
   siJavascript,
   siJira,
   siLinux,
@@ -16,10 +23,12 @@ import {
   siOpenaigym,
   siOpenjdk,
   siPandas,
+  siPycharm,
   siPytorch,
   siPython,
   siRos,
   siScikitlearn,
+  siTensorflow,
 } from 'simple-icons';
 
 const simple: Record<string, SimpleIcon> = {
@@ -27,15 +36,24 @@ const simple: Record<string, SimpleIcon> = {
   cpp: siCplusplus,
   java: siOpenjdk,
   javascript: siJavascript,
+  html5: siHtml5,
   pytorch: siPytorch,
   numpy: siNumpy,
   scikitlearn: siScikitlearn,
   pandas: siPandas,
+  tensorflow: siTensorflow,
   openaigym: siOpenaigym,
   git: siGit,
+  github: siGithub,
+  gitlab: siGitlab,
   linux: siLinux,
   docker: siDocker,
   ros: siRos,
+  apple: siApple,
+  cursor: siCursor,
+  pycharm: siPycharm,
+  intellijidea: siIntellijidea,
+  eclipseide: siEclipseide,
   jira: siJira,
   confluence: siConfluence,
 };

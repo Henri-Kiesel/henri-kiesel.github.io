@@ -16,7 +16,7 @@
           "highlights": [
             "Machine Learning, Introduction to Deep Learning",
             "3D Computer Vision, Advanced Deep Learning for Computer Vision",
-            "Roboterdynamik, Regelung moderner Leichtbauroboter, Automone Systeme"
+            "Robot Dynamics, Control of Modern Leightweight Robots, Autonomous Systems"
           ],
           "keySkills": ["Python", "Pandas", "PyTorch", "NumPy", "TensorFlow", "C/C++", "ROS", "Linux", "Docker"],
           "bannerImage": "/assets/img/tum_1.jpg"
@@ -57,7 +57,7 @@
             "Technical contributions to club projects (analysis, development, testing, delivery)",
             "Interdisciplinary collaboration within the engineering team"
           ],
-          "keySkills": ["Python", "Machine Learning"],
+          "keySkills": [],
           "bannerImage": "/assets/img/tum_social_ai_club.svg"
         },
         {

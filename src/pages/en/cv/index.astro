@@ -1,5 +1,6 @@
 ---
 import SiteChrome from '../../../components/SiteChrome.astro';
+import CvDownloadBar from '../../../components/CvDownloadBar.astro';
 import CvSectionNav from '../../../components/CvSectionNav.astro';
 import CvTimeline from '../../../components/CvTimeline.astro';
 import site from '../../../data/site.json';
@@ -28,6 +29,9 @@ const canonicalHref = new URL(Astro.url.pathname, Astro.site ?? new URL('https:/
     <aside class="cv-sidebar">
       <p class="cv-section-heading">{ui.cvNavHeading}</p>
       <CvSectionNav sections={typedCv.sections.map((s) => ({ id: s.id, title: s.title }))} ariaLabel={ui.cvNavAria} />
+      <div class="cv-sidebar-download">
+        <CvDownloadBar ui={ui} />
+      </div>
     </aside>
     <div class="cv-main">
       <CvTimeline cv={typedCv} lang="en" />

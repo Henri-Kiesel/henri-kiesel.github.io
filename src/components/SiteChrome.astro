@@ -52,7 +52,15 @@ const pageLabel =
         : undefined;
 ---
 
-<BaseLayout lang={lang} title={title} description={description} skipToContent={ui.skipToContent} canonicalHref={canonicalHref}>
+<BaseLayout
+  lang={lang}
+  title={title}
+  description={description}
+  skipToContent={ui.skipToContent}
+  canonicalHref={canonicalHref}
+  pageUi={ui}
+  welcomeAlternatePath={alternatePath}
+>
   <header class="site-header">
     <div class="wrap header-inner">
       <a
@@ -88,6 +96,7 @@ const pageLabel =
         ui={ui}
         isPrimaryHeading={activeNav === 'home'}
         pageLabel={pageLabel}
+        homeHero={activeNav === 'home'}
       />
       {activeNav === 'home' ? (
         <HomeAboutSection lang={lang} ui={ui} cvHref={cvHref} projectsHref={projectsHref} skillsHref={skillsHref} />

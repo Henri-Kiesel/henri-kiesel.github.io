@@ -1,0 +1,99 @@
+---
+interface CvDownloadUi {
+  lightboxClose: string;
+  cvDownloadButton: string;
+  cvDownloadDialogAria: string;
+  cvDownloadHeading: string;
+  cvDownloadHint: string;
+  cvDownloadDe: string;
+  cvDownloadEn: string;
+  cvDownloadCancel: string;
+}
+
+interface Props {
+  ui: CvDownloadUi;
+}
+
+const { ui } = Astro.props;
+const pdfDe = '/assets/pdf/CV_Henri_Kiesel_DE.pdf';
+const pdfEn = '/assets/pdf/CV_Henri_Kiesel_EN.pdf';
+---
+
+<div class="cv-download-wrap" data-cv-download-root>
+  <button
+    type="button"
+    class="cv-download-trigger"
+    data-cv-download-open
+    aria-haspopup="dialog"
+    aria-expanded="false"
+    aria-controls="cv-download-dialog"
+  >
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+      <polyline points="7 10 12 15 17 10" />
+      <line x1="12" y1="15" x2="12" y2="3" />
+    </svg>
+    <span>{ui.cvDownloadButton}</span>
+  </button>
+  <dialog class="cv-download-dialog" id="cv-download-dialog" aria-label={ui.cvDownloadDialogAria} data-cv-download-dialog>
+    <div class="cv-download-dialog-panel">
+      <button type="button" class="cv-download-dialog-close" aria-label={ui.lightboxClose} data-cv-download-close>
+        <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round">
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+      <h2>{ui.cvDownloadHeading}</h2>
+      <p class="cv-download-dialog-hint">{ui.cvDownloadHint}</p>
+      <div class="cv-download-actions">
+        <a href={pdfDe} download="CV_Henri_Kiesel_DE.pdf">{ui.cvDownloadDe}</a>
+        <a href={pdfEn} download="CV_Henri_Kiesel_EN.pdf">{ui.cvDownloadEn}</a>
+      </div>
+      <button type="button" class="cv-download-cancel" data-cv-download-close>{ui.cvDownloadCancel}</button>
+    </div>
+  </dialog>
+</div>
+
+<script>
+  function initCvDownload() {
+    var root = document.querySelector('[data-cv-download-root]');
+    if (!root) return;
+    var openBtn = root.querySelector('[data-cv-download-open]');
+    var dlg = root.querySelector('[data-cv-download-dialog]');
+    if (!openBtn || !dlg || !(dlg instanceof HTMLDialogElement)) return;
+
+    function setExpanded(open) {
+      openBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    function closeDialog() {
+      dlg.close();
+      setExpanded(false);
+    }
+
+    openBtn.addEventListener('click', function () {
+      if (!dlg.open) {
+        dlg.showModal();
+        setExpanded(true);
+      }
+    });
+
+    root.querySelectorAll('[data-cv-download-close]').forEach(function (btn) {
+      btn.addEventListener('click', closeDialog);
+    });
+
+    dlg.addEventListener('click', function (e) {
+      if (e.target === dlg) closeDialog();
+    });
+
+    dlg.addEventListener('close', function () {
+      setExpanded(false);
+    });
+
+    root.querySelectorAll('.cv-download-actions a[download]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        window.setTimeout(closeDialog, 150);
+      });
+    });
+  }
+  initCvDownload();
+</script>

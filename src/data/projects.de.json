@@ -3,26 +3,36 @@
   "entries": [
     {
       "id": "advanced-deep-learning-cv",
-      "title": "HDRI Map Estimation from Single Face Portrait",
+      "title": "Prediction von HDRI-Maps aus Einzelporträts",
       "org": "Technische Universität München · Lehrveranstaltung",
       "location": "München",
       "period": "seit Apr 2026",
-      "summary": "Aktuelles Uni‑Projekt im Rahmen der Master‑LV: tiefe neuronale Netze für Bildverständnis, Training, Evaluation und Anwendung moderner CV‑Architekturen.",
-      "details": "Praktische Arbeit mit typischen Vision‑Pipelines (Daten, Augmentation, Modelle, Metriken); Fokus auf das methodische Vorgehen und reproduzierbare Experimente.",
-      "highlights": ["Deep Learning", "Computer Vision", "PyTorch"],
+      "summary": "Aktuelles Master-Projekt in der Lehrveranstaltung Advanced Deep Learning for Computer Vision bei Prof. Matthias Nießner.",
+      "details": "Projektmeilensteine:",
+      "highlights": [
+        "Generierung des Datensatzes und Implementierung des Dataloaders (abgeschlossen)",
+        "Implementierung einer einfachen Encoder-Decoder-Architektur und Overfitting auf eine kleine Teilmenge der Daten (abgeschlossen)",
+        "Architekturverfeinerung und Hochskalieren auf den vollständigen Datensatz",
+        "Auswertung und Dokumentation der Ergebnisse"
+      ],
       "keySkills": ["Python", "CNNs / ViTs"],
       "bannerImage": "/assets/img/hdri_estimation_1.png"
     },
     {
       "id": "autonome-systeme",
-      "title": "Autonome Systeme: Semesterprojekt",
+      "title": "Autonome Systeme: UAV-Höhlenerkundung",
       "org": "Technische Universität München · Lehrveranstaltung",
       "location": "München",
-      "period": "Okt 2025 – Mär 2026",
-      "summary": "Projektarbeit im Modul Autonome Systeme: Wahrnehmung, Zustandsschätzung und Steuerung für ein mobiles Robotersystem.",
-      "details": "Konzeption und Umsetzung von Teilen der Wahrnehmungs‑ und Regelkette (z. B. Lokalisierung, Trajektorienfolge oder Sicherheitsüberwachung) im Teamsetting; Einbindung in eine ROS‑basierte Softwarearchitektur.",
-      "highlights": ["Mobile Robotik", "ROS", "Regelung / Schätzung"],
-      "keySkills": ["ROS", "Python", "MATLAB", "Regelungstechnik"],
+      "period": "Dez 2025 – Mär 2026",
+      "summary": "Master-Projekt in der Lehrveranstaltung Autonomous Systems bei Prof. Markus Ryll.",
+      "details": "Aufgabe: Implementierung eines Regelungssystems, das eine UAV autonom durch eine Höhlenumgebung steuert und in einer Unity-Simulation eine Reihe verborgener Laternen findet.\n\nUmgesetzte Teile umfassten:",
+      "highlights": [
+        "State Machine",
+        "Perception Pipeline zur Erzeugung einer Voxel-Occupancy Map",
+        "Trajektorienplanung und Hindernisvermeidung",
+        "Flugregler"
+      ],
+      "keySkills": ["ROS", "C/C++"],
       "bannerImage": "/assets/img/autonome_systeme_2.JPG"
     },
     {
@@ -40,8 +50,8 @@
     {
       "id": "ist-projektwettbewerb",
       "title": "IST‑Projektwettbewerb: Einführung in die Regelungstechnik",
-      "org": "Institut für Systemtheorie und Regelungstechnik (IST), Universität Stuttgart",
-      "orgUrl": "https://www.ist.uni-stuttgart.de/de/",
+      "org": "Institut für Systemtheorie und Regelungstechnik (IST) · Universität Stuttgart",
+      "orgUrl": "",
       "location": "Stuttgart Vaihingen",
       "period": "Apr – Jul 2024",
       "summary": "Erreichen des zweiten Platzes im Projektwettbewerb am Institut für Systemtheorie und Regelungstechnik (IST)",
