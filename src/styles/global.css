@@ -933,139 +933,20 @@ html[data-theme='light'] .theme-toggle-sun {
   border: none;
   max-width: min(92vw, 24rem);
   background: transparent;
-  position: relative;
 }
 
 .welcome-dialog::backdrop {
-  background: color-mix(in oklab, var(--bg) 40%, #000 60%);
+  background: color-mix(in oklab, var(--bg) 45%, #000 55%);
   backdrop-filter: blur(4px);
 }
 
-/* Aurora: Vollfläche hinter dem Dialog-Panel (nur sichtbar solange <dialog> offen) */
-.welcome-aurora {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-  isolation: isolate;
-}
-
-.welcome-aurora__band {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(72px);
-  opacity: 0.42;
-  mix-blend-mode: screen;
-  will-change: transform;
-}
-
-html[data-theme='light'] .welcome-aurora__band {
-  opacity: 0.2;
-  mix-blend-mode: normal;
-}
-
-.welcome-aurora__band--a {
-  width: 165%;
-  height: 42%;
-  left: -32%;
-  top: 8%;
-  background: linear-gradient(
-    118deg,
-    transparent 0%,
-    color-mix(in oklab, #1e4a8c 70%, transparent) 28%,
-    color-mix(in oklab, #3d8aed 75%, transparent) 48%,
-    color-mix(in oklab, #5ec8ff 65%, transparent) 68%,
-    transparent 100%
-  );
-  animation: welcome-aurora-drift-a 22s ease-in-out infinite;
-}
-
-.welcome-aurora__band--b {
-  width: 140%;
-  height: 38%;
-  right: -35%;
-  top: 28%;
-  background: linear-gradient(
-    72deg,
-    transparent 0%,
-    color-mix(in oklab, var(--accent) 55%, transparent) 40%,
-    color-mix(in oklab, #7ae0ff 60%, transparent) 58%,
-    color-mix(in oklab, #2a5cb0 50%, transparent) 78%,
-    transparent 100%
-  );
-  animation: welcome-aurora-drift-b 28s ease-in-out infinite;
-}
-
-.welcome-aurora__band--c {
-  width: 150%;
-  height: 36%;
-  left: -25%;
-  bottom: -5%;
-  background: linear-gradient(
-    95deg,
-    transparent 0%,
-    color-mix(in oklab, #2563c4 55%, transparent) 35%,
-    color-mix(in oklab, var(--accent) 50%, transparent) 55%,
-    color-mix(in oklab, #4fd1ff 45%, transparent) 72%,
-    transparent 100%
-  );
-  animation: welcome-aurora-drift-c 19s ease-in-out infinite;
-}
-
-@keyframes welcome-aurora-drift-a {
-  0%,
-  100% {
-    transform: translate3d(-3%, -2%, 0) rotate(-1.5deg) scale(1);
-  }
-  50% {
-    transform: translate3d(6%, 4%, 0) rotate(2deg) scale(1.04);
-  }
-}
-
-@keyframes welcome-aurora-drift-b {
-  0%,
-  100% {
-    transform: translate3d(4%, 2%, 0) rotate(1deg) scale(1.02);
-  }
-  50% {
-    transform: translate3d(-5%, -3%, 0) rotate(-2deg) scale(1);
-  }
-}
-
-@keyframes welcome-aurora-drift-c {
-  0%,
-  100% {
-    transform: translate3d(2%, 3%, 0) rotate(2deg) scale(1.03);
-  }
-  33% {
-    transform: translate3d(-4%, -2%, 0) rotate(-1deg) scale(0.98);
-  }
-  66% {
-    transform: translate3d(3%, -4%, 0) rotate(1.5deg) scale(1.01);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .welcome-aurora__band {
-    animation: none !important;
-    will-change: auto;
-  }
-}
-
 .welcome-dialog-panel {
-  position: relative;
-  z-index: 1;
   padding: 1.2rem 1.2rem 1.05rem;
   border-radius: var(--radius);
-  background-color: var(--surface);
+  background: var(--surface);
   border: 1px solid var(--border);
   box-shadow: 0 24px 60px color-mix(in oklab, var(--text) 18%, transparent);
   text-align: center;
-  overflow: hidden;
-  isolation: isolate;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
 }
 
 .welcome-dialog-title {

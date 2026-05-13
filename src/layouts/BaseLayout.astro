@@ -94,11 +94,6 @@ const showWelcome = Boolean(pageUi && welcomeAlternatePath);
           data-welcome-page-lang={lang}
         >
           <script type="application/json" id="welcome-i18n-json" set:html={JSON.stringify(welcomeI18n)} />
-          <div class="welcome-aurora" aria-hidden="true">
-            <div class="welcome-aurora__band welcome-aurora__band--a"></div>
-            <div class="welcome-aurora__band welcome-aurora__band--b"></div>
-            <div class="welcome-aurora__band welcome-aurora__band--c"></div>
-          </div>
           <div class="welcome-dialog-panel">
             <h2 class="welcome-dialog-title" id="welcome-dialog-title" data-welcome-copy="welcomeTitle">
               {pageUi.welcomeTitle}
