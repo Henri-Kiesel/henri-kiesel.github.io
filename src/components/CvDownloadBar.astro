@@ -15,8 +15,10 @@ interface Props {
 }
 
 const { ui } = Astro.props;
-const pdfDe = '/assets/pdf/CV_Henri_Kiesel_public_DE.pdf';
-const pdfEn = '/assets/pdf/CV_Henri_Kiesel_public_EN.pdf';
+const pdfDeName = 'CV_Henri_Kiesel_public_DE.pdf';
+const pdfEnName = 'CV_Henri_Kiesel_public_EN.pdf';
+const pdfDe = `/assets/pdf/${pdfDeName}`;
+const pdfEn = `/assets/pdf/${pdfEnName}`;
 ---
 
 <div class="cv-download-wrap" data-cv-download-root>
@@ -45,8 +47,8 @@ const pdfEn = '/assets/pdf/CV_Henri_Kiesel_public_EN.pdf';
       <h2>{ui.cvDownloadHeading}</h2>
       <p class="cv-download-dialog-hint">{ui.cvDownloadHint}</p>
       <div class="cv-download-actions">
-        <a href={pdfDe} download="CV_Henri_Kiesel_DE.pdf">{ui.cvDownloadDe}</a>
-        <a href={pdfEn} download="CV_Henri_Kiesel_EN.pdf">{ui.cvDownloadEn}</a>
+        <a href={pdfDe} download={pdfDeName}>{ui.cvDownloadDe}</a>
+        <a href={pdfEn} download={pdfEnName}>{ui.cvDownloadEn}</a>
       </div>
       <button type="button" class="cv-download-cancel" data-cv-download-close>{ui.cvDownloadCancel}</button>
     </div>

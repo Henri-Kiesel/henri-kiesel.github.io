@@ -936,8 +936,16 @@ html[data-theme='light'] .theme-toggle-sun {
 }
 
 .welcome-dialog::backdrop {
-  background: color-mix(in oklab, var(--bg) 45%, #000 55%);
-  backdrop-filter: blur(4px);
+  background-color: var(--bg);
+  background-image: linear-gradient(
+      color-mix(in oklab, var(--bg) 30%, transparent),
+      color-mix(in oklab, var(--bg) 35%, transparent)
+    ),
+    url('/assets/img/landing_page_background_1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(3px);
 }
 
 .welcome-dialog-panel {
@@ -1557,36 +1565,60 @@ details.cv-entry summary::-webkit-details-marker {
 }
 
 @media (max-width: 720px) {
-  .header-nav {
-    gap: 0;
-    overflow-x: auto;
-    overflow-y: hidden;
+  /* Eine Zeile: Marke fix, Rest horizontal scrollbar (Touch-Wisch) */
+  .site-header .header-inner {
     flex-wrap: nowrap;
-    padding-bottom: 0.15rem;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    mask-image: linear-gradient(to right, transparent 0, black 12px, black calc(100% - 12px), transparent 100%);
+    align-items: center;
+    gap: 0.65rem;
+    min-width: 0;
   }
 
   .header-toolbar {
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    row-gap: 0.35rem;
+    flex: 1 1 auto;
+    min-width: 0;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 0.45rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    padding-bottom: 0.15rem;
+    mask-image: linear-gradient(to right, transparent 0, black 10px, black calc(100% - 10px), transparent 100%);
   }
 
+  .header-nav {
+    flex: 0 0 auto;
+    flex-shrink: 0;
+    gap: 0.1rem;
+    overflow: visible;
+    mask-image: none;
+  }
+
+  .header-nav .nav-anchor {
+    white-space: nowrap;
+  }
+
+  .header-search,
+  .header-end {
+    flex-shrink: 0;
+  }
+
+  /* Suche bleibt in derselben Zeile wie Nav + Aktionen (kein Umbruch mehr) */
   .site-header.search-open .header-search {
-    flex: 1 1 100%;
-    order: 3;
-    justify-content: flex-end;
+    flex: 0 0 auto;
+    order: 0;
+    justify-content: flex-start;
   }
 
   .site-header.search-open .search-expand {
-    max-width: min(100%, calc(100vw - 5rem));
-    flex: 1 1 auto;
+    max-width: min(220px, calc(100vw - 8.5rem));
+    flex: 0 0 auto;
   }
 
   .site-header.search-open .header-end {
-    margin-left: auto;
+    margin-left: 0;
   }
 }
 
